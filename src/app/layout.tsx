@@ -1,75 +1,55 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-const helveticaNeue = localFont({
+const satoshi = localFont({
   src: [
     {
-      path: "./fonts/helveticaneue/HelveticaNeueThin.otf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "./fonts/helveticaneue/HelveticaNeueThinItalic.otf",
-      weight: "100",
-      style: "italic",
-    },
-    {
-      path: "./fonts/helveticaneue/HelveticaNeueLight.otf",
+      path: "./fonts/satoshi/Satoshi-Light.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueLightItalic.otf",
+      path: "./fonts/satoshi/Satoshi-LightItalic.otf",
       weight: "300",
       style: "italic",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueRoman.otf",
+      path: "./fonts/satoshi/Satoshi-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueItalic.otf",
+      path: "./fonts/satoshi/Satoshi-Italic.otf",
       weight: "400",
       style: "italic",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueMedium.otf",
+      path: "./fonts/satoshi/Satoshi-Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueMediumItalic.otf",
+      path: "./fonts/satoshi/Satoshi-MediumItalic.otf",
       weight: "500",
       style: "italic",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./fonts/helveticaneue/HelveticaNeueBoldItalic.otf",
-      weight: "600",
-      style: "italic",
-    },
-    {
-      path: "./fonts/helveticaneue/HelveticaNeueHeavy.otf",
+      path: "./fonts/satoshi/Satoshi-Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueHeavyItalic.otf",
+      path: "./fonts/satoshi/Satoshi-BoldItalic.otf",
       weight: "700",
       style: "italic",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueBlack.otf",
+      path: "./fonts/satoshi/Satoshi-Black.otf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "./fonts/helveticaneue/HelveticaNeueBlackItalic.otf",
+      path: "./fonts/satoshi/Satoshi-BlackItalic.otf",
       weight: "800",
       style: "italic",
     },
@@ -78,13 +58,14 @@ const helveticaNeue = localFont({
   display: "swap",
 });
 
+
 export default function GlobalLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${helveticaNeue.variable}`}>
+    <html lang="en" className={`${satoshi.variable}`}>
       <body>
           {children}
       </body>
