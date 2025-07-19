@@ -7,7 +7,7 @@ import {
   ColorPicker,
   TextPicker,
 } from "./components";
-import { IconPalette } from "@/assets/svg";
+import { IconAnimation, IconBackground, IconPalette, IconText } from "@/assets/svg";
 import s from "./Sidebar.module.css";
 
 interface TabType {
@@ -17,17 +17,15 @@ interface TabType {
 }
 
 const tabs: TabType[] = [
-  { tabName: "text", component: <TextPicker />, icon: <IconPalette /> },
+  { tabName: "text", component: <TextPicker />, icon: <IconText /> },
   {
     tabName: "animation",
-    component: <AnimationPicker />,
-    icon: <IconPalette />,
+    component: <AnimationPicker />, icon: <IconAnimation />,
   },
   { tabName: "color", component: <ColorPicker />, icon: <IconPalette /> },
   {
     tabName: "background",
-    component: <BackgroundPicker />,
-    icon: <IconPalette />,
+    component: <BackgroundPicker />, icon: <IconBackground />,
   },
 ] as const;
 
