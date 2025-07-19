@@ -1,0 +1,17 @@
+# No Index
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /api/
+Disallow: /private/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Index
+Allow: /
+
+# Sitemap
+Sitemap: https://www.libraryanimations.com/sitemap.xml
+
+# Crawl-delay: 10
