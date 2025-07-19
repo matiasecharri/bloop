@@ -2,10 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fffce1;
-  color: #000;
+  background-color: var(--color-light);
+  color: var(--color-dark);
   border-radius: 40px;
   width: 100%;
   height: calc(100% - 40px);
   transform: translateY(20px);
+}
+
+.p {
+  font-family: "satoshi";
 }
