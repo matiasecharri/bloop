@@ -1,0 +1,18 @@
+.sidebar {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  background-color: yellow;
+}
+
+.buttonBar {
+  height: 100%;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: aqua;
+}

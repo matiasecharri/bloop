@@ -1,7 +1,10 @@
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
   height: 100vh;
+}
+
+.placeholder {
+  flex: 1;
+  height: 100%;
+  background-color: rgb(236, 236, 214);
 }

@@ -1,7 +1,13 @@
-import s from "./AnimationDasboard.module.css";
+import { Sidebar } from "./sidebar";
+import s from "./AnimationDashboard.module.css";
 
 const AnimationDasboard = () => {
-  <main className={s.container}></main>;
+  return (
+    <main className={s.container}>
+      <Sidebar />
+      <div className={s.placeholder}></div>
+    </main>
+  );
 };
 
 export default AnimationDasboard;
