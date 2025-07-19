@@ -1,39 +1,56 @@
 .sidebar {
   width: 100%;
-  max-width: 380px;
+  max-width: 550px;
   display: flex;
-  background-color: yellow;
+  background-color: #181818;
+  border-radius: 12px;
 }
 
 .buttonBar {
   height: 100%;
-  width: 200px;
+  width: 100%;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: aqua;
+  gap: 15px;
+  padding: 20px 20px;
 }
 
 .btn {
   width: 100%;
-  background-color: yellow;
+  background-color: transparent;
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  border-radius: 10px;
-  padding: 8px;
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-family: "Syne";
+}
+
+.btn:hover {
+  background-color: #0000000c;
 }
 
 .btn svg {
-  width: 30px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
 }
 
 .btnActive {
-  background-color: rgb(215, 230, 241);
+  background-color: #3d50cb;
+  color: #ffffff;
+}
+
+.btnActive:hover {
+  background-color: #3d50cb;
+  color: #ffffff;
+}
+
+.currentPicker {
+  flex: 1;
 }

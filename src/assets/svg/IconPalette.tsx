@@ -2,12 +2,7 @@ import { SVGProps } from "react";
 
 const IconPalette = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <g fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"

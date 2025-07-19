@@ -4,12 +4,12 @@
   justify-content: flex-start;
   align-items: center;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #181818;
   border-bottom: 1px solid #8080805c;
 }
 
 .header h1 {
   font-size: 1.5rem;
-  color: #000;
+  color: #ffffff;
   font-family: "Syne";
 }

@@ -7,7 +7,13 @@ import {
   ColorPicker,
   TextPicker,
 } from "./components";
-import { IconAnimation, IconBackground, IconPalette, IconText } from "@/assets/svg";
+import {
+  IconAnimation,
+  IconBackground,
+  IconPalette,
+  IconText,
+} from "@/assets/svg";
+import { capitalize } from "@/shared/utilities";
 import s from "./Sidebar.module.css";
 
 interface TabType {
@@ -20,12 +26,14 @@ const tabs: TabType[] = [
   { tabName: "text", component: <TextPicker />, icon: <IconText /> },
   {
     tabName: "animation",
-    component: <AnimationPicker />, icon: <IconAnimation />,
+    component: <AnimationPicker />,
+    icon: <IconAnimation />,
   },
   { tabName: "color", component: <ColorPicker />, icon: <IconPalette /> },
   {
     tabName: "background",
-    component: <BackgroundPicker />, icon: <IconBackground />,
+    component: <BackgroundPicker />,
+    icon: <IconBackground />,
   },
 ] as const;
 
@@ -48,11 +56,11 @@ const Sidebar = () => {
             type="button"
           >
             {icon}
-            {tabName}
+            {capitalize(tabName)}
           </button>
         ))}
       </section>
-      <section className={s.currentOptions}>{currentTab?.component}</section>
+      <section className={s.currentPicker}>{currentTab?.component}</section>
     </aside>
   );
 };

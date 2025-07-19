@@ -1,12 +1,12 @@
 import { Header } from "@/shared/components/organisms";
-import s from "./HomeView.module.css";
 import AnimationDasboard from "../animation-dashboard/AnimationDashboard";
+import s from "./HomeView.module.css";
 
 const HomeView = () => {
   return (
     <>
       <div className={s.container}>
-        <Header title="Animation Library" />
+        <Header title="Quick Animations" />
         <AnimationDasboard />
       </div>
     </>
