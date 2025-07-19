@@ -1,6 +1,6 @@
-.container {
+.dashboard {
   display: flex;
-  height: 100vh;
+  height: 100%;
   background-color: #181818;
   gap: 20px;
 }

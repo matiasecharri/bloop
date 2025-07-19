@@ -16,39 +16,52 @@
   align-items: center;
   gap: 15px;
   padding: 20px 20px;
+  border-right: 1px solid #8080805c;
 }
 
 .btn {
   width: 100%;
   background-color: transparent;
-  color: #ffffff;
+  color: #fffce1;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  border-radius: 12px;
-  padding: 12px 12px;
+  border-radius: 10px;
+  padding: 12px 16px;
   font-family: "Syne";
+  border: 1px solid #fffce023;
 }
 
 .btn:hover {
-  background-color: #0000000c;
+  background-color: #2b2b2ba3;
 }
 
 .btn svg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .btnActive {
-  background-color: #3d50cb;
-  color: #ffffff;
+  background: #0ee449;
+  background: linear-gradient(
+    48deg,
+    rgba(14, 228, 73, 1) 0%,
+    rgb(140, 255, 87) 100%
+  );
+  color: #fffce1;
+  border: 1px solid #fffce000;
 }
 
 .btnActive:hover {
-  background-color: #3d50cb;
-  color: #ffffff;
+  background: linear-gradient(
+    48deg,
+    rgba(14, 228, 73, 1) 0%,
+    rgb(140, 255, 87) 100%
+  );
+  color: #fffce1;
+  border: 1px solid #fffce000;
 }
 
 .currentPicker {

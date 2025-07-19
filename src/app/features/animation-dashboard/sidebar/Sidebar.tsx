@@ -25,7 +25,7 @@ interface TabType {
 const tabs: TabType[] = [
   { tabName: "text", component: <TextPicker />, icon: <IconText /> },
   {
-    tabName: "animation",
+    tabName: "animations",
     component: <AnimationPicker />,
     icon: <IconAnimation />,
   },

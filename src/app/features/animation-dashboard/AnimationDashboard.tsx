@@ -4,7 +4,7 @@ import s from "./AnimationDashboard.module.css";
 
 const AnimationDasboard = () => {
   return (
-    <main className={s.container}>
+    <main className={s.dashboard}>
       <Sidebar />
       <Visualizer />
     </main>

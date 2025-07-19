@@ -5,7 +5,7 @@ import s from "./HomeView.module.css";
 const HomeView = () => {
   return (
     <>
-      <div className={s.container}>
+      <div className={s.homeContainer}>
         <Header title="Quick Animations" />
         <AnimationDasboard />
       </div>
