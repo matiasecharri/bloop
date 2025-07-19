@@ -6,7 +6,7 @@ const AnimationDasboard = () => {
   return (
     <main className={s.container}>
       <Sidebar />
-      <Visualizer/>
+      <Visualizer />
     </main>
   );
 };

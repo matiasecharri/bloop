@@ -8,21 +8,21 @@ import s from "./Sidebar.module.css";
 
 const Sidebar = () => {
   return (
-    <section className={s.sidebar}>
-      <div className={s.buttonBar}>
+    <aside className={s.sidebar}>
+      <section className={s.buttonBar}>
         <button>TX</button>
         <button>FX</button>
         <button>CO</button>
         <button>BG</button>
         <button>EX</button>
-      </div>
-      <div className={s.currentOptions}>
+      </section>
+      <section className={s.currentOptions}>
         <TextPicker />
         <AnimationPicker />
         <ColorPicker />
         <BackgroundPicker />
-      </div>
-    </section>
+      </section>
+    </aside>
   );
 };
 
