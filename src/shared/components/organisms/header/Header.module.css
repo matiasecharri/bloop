@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 20px;
   background-color: #181818;
   border-bottom: 1px solid #8080805c;
 }
@@ -11,5 +11,6 @@
 .header h1 {
   font-size: 1.5rem;
   color: #fffce1;
+  text-transform: uppercase;
   font-family: "Helveticaneue";
 }

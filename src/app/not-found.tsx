@@ -1,9 +1,7 @@
+import { Header } from "@/shared/components/organisms";
+
 const NotFound = () => {
-  return (
-    <header>
-      <h1>Page not found!</h1>
-    </header>
-  );
+  return <Header title="Page not found"></Header>;
 };
 
 export default NotFound;

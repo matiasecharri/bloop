@@ -14,8 +14,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
-  padding: 20px 20px;
   border-right: 1px solid #8080805c;
 }
 
@@ -28,10 +26,9 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  border-radius: 10px;
-  padding: 12px 16px;
+  padding: 20px 16px;
   font-family: "Helveticaneue";
-  border: 1px solid #fffce023;
+  border-bottom: 1px solid #fffce023;
 }
 
 .btn:hover {
@@ -51,7 +48,7 @@
     rgb(140, 255, 87) 100%
   );
   color: #fffce1;
-  border: 1px solid #fffce000;
+  border-bottom: 1px solid #fffce000;
 }
 
 .btnActive:hover {
@@ -61,7 +58,7 @@
     rgb(140, 255, 87) 100%
   );
   color: #fffce1;
-  border: 1px solid #fffce000;
+  border-bottom: 1px solid #fffce000;
 }
 
 .currentPicker {
