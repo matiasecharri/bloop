@@ -1,49 +1,60 @@
 "use client";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
+import clsx from "clsx";
 import {
   AnimationPicker,
   BackgroundPicker,
   ColorPicker,
   TextPicker,
 } from "./components";
+import { IconPalette } from "@/assets/svg";
 import s from "./Sidebar.module.css";
 
 interface TabType {
   tabName: string;
   component: ReactNode;
+  icon: ReactNode;
 }
 
 const tabs: TabType[] = [
-  { tabName: "text", component: <TextPicker /> },
-  { tabName: "animation", component: <AnimationPicker /> },
-  { tabName: "color", component: <ColorPicker /> },
-  { tabName: "background", component: <BackgroundPicker /> },
-];
+  { tabName: "text", component: <TextPicker />, icon: <IconPalette /> },
+  {
+    tabName: "animation",
+    component: <AnimationPicker />,
+    icon: <IconPalette />,
+  },
+  { tabName: "color", component: <ColorPicker />, icon: <IconPalette /> },
+  {
+    tabName: "background",
+    component: <BackgroundPicker />,
+    icon: <IconPalette />,
+  },
+] as const;
+
+type TabName = (typeof tabs)[number]["tabName"];
 
 const Sidebar = () => {
-  const [selectedTab, setSelectedTab] = useState<any>();
+  const [selectedTab, setSelectedTab] = useState<TabName>(tabs[0].tabName);
 
-  useEffect(() => {
-    console.log(selectedTab);
-  }, [selectedTab]);
+  const currentTab = tabs.find((tab) => tab.tabName === selectedTab);
 
   return (
     <aside className={s.sidebar}>
       <section className={s.buttonBar}>
-        {tabs.map((tab) => (
+        {tabs.map(({ tabName, icon }) => (
           <button
-            key={tab.tabName}
-            onClick={(e) => setSelectedTab(() => tab.tabName)}
+            key={tabName}
+            aria-label={tabName}
+            className={clsx(s.btn, tabName === selectedTab ? s.btnActive : "")}
+            onClick={() => setSelectedTab(() => tabName)}
+            type="button"
           >
-            {tab.tabName}
+            {icon}
+            {tabName}
           </button>
         ))}
       </section>
-      <section className={s.currentOptions}>
-        {/* <AnimationPicker />
-        <ColorPicker />
-        <BackgroundPicker /> */}
-      </section>
+      <section className={s.currentOptions}>{currentTab?.component}</section>
     </aside>
   );
 };
