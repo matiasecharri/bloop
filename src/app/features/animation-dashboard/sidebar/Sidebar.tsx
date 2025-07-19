@@ -1,3 +1,9 @@
+import {
+  AnimationPicker,
+  BackgroundPicker,
+  ColorPicker,
+  TextPicker,
+} from "./components";
 import s from "./Sidebar.module.css";
 
 const Sidebar = () => {
@@ -10,7 +16,12 @@ const Sidebar = () => {
         <button>BG</button>
         <button>EX</button>
       </div>
-      <div className={s.currentOptions}></div>
+      <div className={s.currentOptions}>
+        <TextPicker />
+        <AnimationPicker />
+        <ColorPicker />
+        <BackgroundPicker />
+      </div>
     </section>
   );
 };
