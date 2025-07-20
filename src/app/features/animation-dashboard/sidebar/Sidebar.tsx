@@ -10,7 +10,9 @@ import {
 import {
   IconAnimation,
   IconBackground,
+  IconDownload,
   IconPalette,
+  IconPresets,
   IconText,
 } from "@/assets/svg";
 import { capitalize } from "@/shared/utilities";
@@ -34,6 +36,16 @@ const tabs: TabType[] = [
     tabName: "background",
     component: <BackgroundPicker />,
     icon: <IconBackground />,
+  },
+  {
+    tabName: "presets",
+    component: <BackgroundPicker />,
+    icon: <IconPresets />,
+  },
+  {
+    tabName: "download",
+    component: <BackgroundPicker />,
+    icon: <IconDownload />,
   },
 ] as const;
 

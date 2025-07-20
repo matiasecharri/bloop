@@ -4,10 +4,10 @@
   justify-content: center;
   background-color: var(--color-light);
   color: var(--color-dark);
-  border-radius: 40px;
+  border-radius: 20px 0px 0px 20px;
   width: 100%;
   height: calc(100% - 40px);
-  transform: translateY(20px);
+  margin-top: 20px;
 }
 
 .p {

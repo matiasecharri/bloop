@@ -1,5 +1,6 @@
 :root {
   --color-dark: #181818;
+  --color-dark-accent: #131313;
   --color-light: #fffce1;
   --color-light-alt: #fffde1;
   --color-text-dark: #000000;
@@ -7,9 +8,11 @@
   --color-border-light: #8080805c;
   --color-hover: #2b2b2ba3;
   --color-transparent: #fffce000;
+  --color-accent: #0dff5b;
+  --color-accent-alt: #21ff0d;
   --max-width: 1500px;
   --max-width-section: 1300px;
-  --nav-height: 95px;
+  --nav-height: 80px;
   --nav-max-width: 1750px;
 }
 

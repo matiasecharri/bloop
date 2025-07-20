@@ -7,14 +7,17 @@
 }
 
 .buttonBar {
-  height: 100%;
   width: 100%;
+  height: 100%;
+  max-height: calc(100dvh - (var(--nav-height)));
+  overflow-y: scroll;
   max-width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-right: 1px solid var(--color-border-light);
+  background-color: var(--color-dark-accent);
 }
 
 .btn {
@@ -40,20 +43,37 @@
 .btn svg {
   width: 1.5rem;
   height: 1.5rem;
+  opacity: 0.9;
+}
+
+.btn:last-of-type {
+  margin-bottom: 60px;
 }
 
 .btnActive {
-  background-image: linear-gradient(161.15deg, var(--color-light) 12.73%, var(--color-light-alt) 72.95%);
+  background-image: linear-gradient(
+    161.15deg,
+    var(--color-light) 12.73%,
+    var(--color-light-alt) 72.95%
+  );
   color: var(--color-text-dark);
   border-bottom: 1px solid var(--color-transparent);
 }
 
 .btnActive:hover {
-  background-image: linear-gradient(161.15deg, var(--color-light) 12.73%, var(--color-light) 72.95%);
+  background-image: linear-gradient(
+    161.15deg,
+    var(--color-light) 12.73%,
+    var(--color-light) 72.95%
+  );
   color: var(--color-text-dark);
   border-bottom: 1px solid var(--color-transparent);
 }
 
 .currentPicker {
+  height: 100%;
   flex: 1;
+  max-height: calc(100dvh - (var(--nav-height)));
+  padding: 20px;
+  border-right: 1px solid var(--color-border-light);
 }

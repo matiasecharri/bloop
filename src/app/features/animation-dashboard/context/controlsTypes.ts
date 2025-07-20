@@ -32,7 +32,7 @@ export const DefaultControlsSettings: ControlsSettings = {
     endDelay: 0,
   },
   text: {
-    userText: "Quick Animations",
+    userText: "Default Text",
     fontSize: "100px",
     fontFamily: "satoshi",
   },
