@@ -4,10 +4,8 @@
   justify-content: center;
   background-color: var(--color-light);
   color: var(--color-dark);
-  border-radius: 20px 0px 0px 20px;
   width: 100%;
-  height: calc(100% - 40px);
-  margin-top: 20px;
+  height: 100%;
 }
 
 .p {

@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import {
   AnimationPicker,
@@ -53,25 +53,63 @@ type TabName = (typeof tabs)[number]["tabName"];
 
 const Sidebar = () => {
   const [selectedTab, setSelectedTab] = useState<TabName>(tabs[0].tabName);
+  const [indicatorStyle, setIndicatorStyle] = useState({ top: 0, height: 0 });
+
+  const buttonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
+  const buttonBarRef = useRef<HTMLElement>(null);
+
+  const indicatorPositionStyle = {
+    top: `${indicatorStyle.top}px`,
+    height: `${indicatorStyle.height}px`,
+  };
 
   const currentTab = tabs.find((tab) => tab.tabName === selectedTab);
 
+  const updateIndicatorPosition = (tabName: TabName) => {
+    const button = buttonRefs.current[tabName];
+    const buttonBar = buttonBarRef.current;
+
+    if (button && buttonBar) {
+      const top = button.offsetTop;
+      const height = button.offsetHeight;
+
+      setIndicatorStyle({ top, height });
+    }
+  };
+
+  const handleTabClick = (tabName: TabName) => {
+    setSelectedTab(tabName);
+  };
+
+  useEffect(() => {
+    updateIndicatorPosition(selectedTab);
+  }, [selectedTab]);
+
   return (
     <aside className={s.sidebar}>
-      <section className={s.buttonBar}>
-        {tabs.map(({ tabName, icon }) => (
-          <button
-            key={tabName}
-            aria-label={tabName}
-            className={clsx(s.btn, tabName === selectedTab ? s.btnActive : "")}
-            onClick={() => setSelectedTab(() => tabName)}
-            type="button"
-          >
-            {icon}
-            {capitalize(tabName)}
-          </button>
-        ))}
-      </section>
+      <div className={s.buttonBarContainer}>
+        <section ref={buttonBarRef} className={s.buttonBar}>
+          <div className={s.indicator} style={indicatorPositionStyle} />
+          {tabs.map(({ tabName, icon }) => (
+            <button
+              key={tabName}
+              ref={(el) => {
+                buttonRefs.current[tabName] = el;
+              }}
+              aria-label={tabName}
+              className={clsx(
+                s.btn,
+                tabName === selectedTab ? s.btnActive : ""
+              )}
+              onClick={() => handleTabClick(tabName)}
+              type="button"
+            >
+              {icon}
+              {capitalize(tabName)}
+            </button>
+          ))}
+        </section>
+      </div>
       <section className={s.currentPicker}>{currentTab?.component}</section>
     </aside>
   );
