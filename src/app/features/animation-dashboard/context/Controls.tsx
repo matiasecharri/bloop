@@ -5,12 +5,13 @@ import {
   DefaultControlsSettings,
   TextSettings,
 } from "./controlsTypes";
+import { withLogger } from "@/shared/utilities";
 
 //REDUCER TYPES
 export const CONTROLS_ACTIONS = {
   TEXT: "TEXT",
   ANIMATIONS: "ANIMATIONS",
-};
+} as const;
 
 export type ControlsAction =
   | { type: typeof CONTROLS_ACTIONS.TEXT; payload: TextSettings }
@@ -73,7 +74,10 @@ export const useControls = () => {
 
 //PROVIDER + REDUCER
 export const ControlsProvider = ({ children }: ControlsProviderProps) => {
-  const [state, dispatch] = useReducer(controlReducer, DefaultControlsSettings);
+  const [state, dispatch] = useReducer(
+    withLogger(controlReducer),
+    DefaultControlsSettings
+  );
 
   return (
     <ControlsContext.Provider value={{ state, dispatch }}>
