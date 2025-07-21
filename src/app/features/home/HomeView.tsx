@@ -6,12 +6,10 @@ import s from "./HomeView.module.css";
 const HomeView = () => {
   return (
     <>
-      <CounterProvider>
         <div className={s.homeContainer}>
           <Header title="Quick Animations" />
           <AnimationDasboard />
         </div>
-      </CounterProvider>
     </>
   );
 };
