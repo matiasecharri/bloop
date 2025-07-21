@@ -2,35 +2,22 @@
 import { Sidebar } from "./sidebar";
 import { Visualizer } from "./visualizer";
 import { ControlsProvider } from "./context";
-import { useReducer } from "react";
+import { COUNTER_ACTIONS, useCounter } from "./context/Counter";
 import s from "./AnimationDashboard.module.css";
 
-type counterActionsType = "PLUS" | "MINUS" | "RESET";
-
-const counterReducer = (state: number, action: counterActionsType) => {
-  switch (action) {
-    case "PLUS":
-      return (state + 1);
-
-    case "MINUS":
-      return state === 0 ? state : state - 1;
-
-    case "RESET":
-      return (state = 0);
-
-    default:
-      return state;
-  }
-};
-
 const AnimationDasboard = () => {
-  const [state, dispatch] = useReducer(counterReducer, 0);
-
+  const { state, dispatch } = useCounter();
   return (
     <ControlsProvider>
-      <button onClick={() => dispatch("PLUS")}>ADD</button>
-      <button onClick={() => dispatch("MINUS")}>MINUS</button>
-      <button onClick={() => dispatch("RESET")}>RESET</button>
+      <button onClick={() => dispatch({ type: COUNTER_ACTIONS.PLUS })}>
+        ADD
+      </button>
+      <button onClick={() => dispatch({ type: COUNTER_ACTIONS.MINUS })}>
+        MINUS
+      </button>
+      <button onClick={() => dispatch({ type: COUNTER_ACTIONS.RESET })}>
+        RESET
+      </button>
       <div>{state}</div>
       <main className={s.dashboard}>
         <Sidebar />

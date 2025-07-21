@@ -5,14 +5,12 @@ interface ControlsProviderProps {
   children: ReactNode;
 }
 
-interface ControlsContextType {
+interface ControlsValueType {
   settings: ControlsSettings;
   setSettings: () => void;
 }
 
-const ControlsContext = createContext<ControlsContextType | undefined>(
-  undefined
-);
+const ControlsContext = createContext<ControlsValueType | undefined>(undefined);
 
 export const useControls = () => {
   const context = useContext(ControlsContext);
