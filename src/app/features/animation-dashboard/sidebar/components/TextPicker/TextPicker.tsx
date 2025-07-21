@@ -1,20 +1,26 @@
 import { useState } from "react";
-import { useControls } from "../../../context";
+import { CONTROLS_ACTIONS, useControls } from "../../../context";
 import s from "./TextPicker.module.css";
+import { capitalize } from "@/shared/utilities";
 
 const TextPicker = () => {
-  const { settings } = useControls();
-  const { userText } = settings.text;
-  const [newText, setNewText] = useState<string>(userText);
+  const { state, dispatch } = useControls();
+  const { text } = state;
 
   return (
     <article>
       <input
         type="text"
-        value={newText}
-        placeholder="Add your text here"
-        onChange={(e) => setNewText(() => e.target.value)}
+        value={text.userText}
+        onChange={(e) =>
+          dispatch({
+            type: CONTROLS_ACTIONS.TEXT,
+            payload: { ...text, userText: e.target.value },
+          })
+        }
       />
+      <p>Font Family: {capitalize(text.fontFamily)}</p>
+      <p>Font Size: {text.fontSize}</p>
     </article>
   );
 };
