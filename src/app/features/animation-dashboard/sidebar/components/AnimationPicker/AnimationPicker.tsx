@@ -1,7 +1,20 @@
+import { useControls } from "../../../context";
 import s from "./AnimationPicker.module.css";
 
 const AnimationPicker = () => {
-  return <p className={s.p}>Animation Picker</p>;
+  const { state, dispatch } = useControls();
+  const { animations } = state;
+
+  return (
+    <section>
+      <p>Duration: {animations.duration}</p>
+      <p>End Delay: {animations.endDelay}</p>
+      <p>Start Delay:{animations.startDelay}</p>
+      <p>FadeIn: {animations.fadeIn ? "true" : "false"}</p>
+      <p>FadeOut: {animations.fadeOut ? "true" : "false"}</p>
+      <p>Loop: {animations.loop ? "true" : "false"}</p>
+    </section>
+  );
 };
 
 export default AnimationPicker;
