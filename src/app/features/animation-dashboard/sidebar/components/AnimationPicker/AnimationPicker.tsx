@@ -1,8 +1,7 @@
 import { useControls } from "../../../context";
-import s from "./AnimationPicker.module.css";
 
 const AnimationPicker = () => {
-  const { state, dispatch } = useControls();
+  const { state } = useControls();
   const { animations } = state;
 
   return (

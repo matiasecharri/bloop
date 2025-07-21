@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { CONTROLS_ACTIONS, useControls } from "../../../context";
-import s from "./TextPicker.module.css";
 import { capitalize } from "@/shared/utilities";
 
 const TextPicker = () => {
