@@ -39,35 +39,39 @@ const TextPicker = () => {
         </div>
         <div className={s.step}>
           <h3 className={s.subtitle}>
-            <strong>03.</strong> Size and Weight
+            <strong>03.</strong> Font Properties
           </h3>
-          <p>Font Size: {text.fontSize}</p>
-          <input
-            type="range"
-            min={10}
-            max={100}
-            value={text.fontSize}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
-                payload: { fontSize: Number(e.target.value) },
-              })
-            }
-          />
-          <p>Font Weight: {text.fontWeight}</p>
-          <input
-            type="range"
-            min={100}
-            max={900}
-            step={100}
-            value={text.fontWeight}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
-                payload: { fontWeight: Number(e.target.value) },
-              })
-            }
-          />
+          <div className={s.inputsWrapper}>
+            <p><strong>Size:</strong> {text.fontSize}px / {(text.fontSize / 16).toFixed(2)}rem</p>
+            <input
+              className={s.inputRange}
+              type="range"
+              min={12}
+              max={200}
+              value={text.fontSize}
+              onChange={(e) =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.TEXT,
+                  payload: { fontSize: Number(e.target.value) },
+                })
+              }
+            />
+            <p><strong>Weight:</strong> {text.fontWeight}</p>
+            <input
+              className={s.inputRange}
+              type="range"
+              min={100}
+              max={900}
+              step={100}
+              value={text.fontWeight}
+              onChange={(e) =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.TEXT,
+                  payload: { fontWeight: Number(e.target.value) },
+                })
+              }
+            />
+          </div>
         </div>
       </div>
     </article>
