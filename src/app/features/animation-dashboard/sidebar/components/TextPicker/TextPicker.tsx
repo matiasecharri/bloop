@@ -1,7 +1,9 @@
 import { CONTROLS_ACTIONS, useControls } from "../../../context";
 import { capitalize } from "@/shared/utilities";
-import s from "./TextPicker.module.css";
 import { IconConfig } from "@/assets/svg";
+import { Wrapper } from "@/shared/components/molecules";
+import { StepPicker, Subtitle, Title } from "@/shared/components/atoms";
+import s from "./TextPicker.module.css";
 
 const TextPicker = () => {
   const { state, dispatch } = useControls();
@@ -10,14 +12,13 @@ const TextPicker = () => {
 
   return (
     <article>
-      <div className={s.wrapper}>
-        <h2 className={s.title}>
-          <IconConfig /> Text Configuration
-        </h2>
-        <div className={s.step}>
-          <h3 className={s.subtitle}>
-            <strong>01.</strong> Add your text here
-          </h3>
+      <Wrapper>
+        <Title text={"Text Configuration"}>
+          <IconConfig />
+        </Title>
+
+        <StepPicker>
+          <Subtitle step={"01."} text={" Add your text here "} />
           <input
             type="text"
             value={text.userText}
@@ -30,19 +31,20 @@ const TextPicker = () => {
               })
             }
           />
-        </div>
-        <div className={s.step}>
-          <h3 className={s.subtitle}>
-            <strong>02.</strong> Font Family
-          </h3>
+        </StepPicker>
+
+        <StepPicker>
+          <Subtitle step={"02."} text={"Font Family"} />
           <p className={s.fontFamily}>{capitalize(text.fontFamily)}</p>
-        </div>
-        <div className={s.step}>
-          <h3 className={s.subtitle}>
-            <strong>03.</strong> Font Properties
-          </h3>
+        </StepPicker>
+
+        <StepPicker>
+          <Subtitle step={"03."} text={"Size and Weight"} />
           <div className={s.inputsWrapper}>
-            <p><strong>Size:</strong> {text.fontSize}px / {(text.fontSize / 16).toFixed(2)}rem</p>
+            <p>
+              <strong>Size:</strong> {text.fontSize}px /{" "}
+              {(text.fontSize / 16).toFixed(2)}rem
+            </p>
             <input
               className={s.inputRange}
               type="range"
@@ -56,7 +58,9 @@ const TextPicker = () => {
                 })
               }
             />
-            <p><strong>Weight:</strong> {text.fontWeight}</p>
+            <p>
+              <strong>Weight:</strong> {text.fontWeight}
+            </p>
             <input
               className={s.inputRange}
               type="range"
@@ -72,8 +76,8 @@ const TextPicker = () => {
               }
             />
           </div>
-        </div>
-      </div>
+        </StepPicker>
+      </Wrapper>
     </article>
   );
 };
