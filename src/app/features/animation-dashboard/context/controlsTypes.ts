@@ -7,13 +7,13 @@ export interface AnimationSettings {
   fadeIn: boolean;
   fadeOut: boolean;
   loop: boolean;
-  startDelay: number;
-  endDelay: number;
+  delay: number;
 }
 
 export interface TextSettings {
   userText: string;
-  fontSize: string;
+  fontSize: number;
+  fontWeight: number;
   fontFamily: string;
 }
 
@@ -24,16 +24,16 @@ export interface ControlsSettings {
 
 export const DefaultControlsSettings: ControlsSettings = {
   animations: {
-    duration: 1000,
+    duration: 2,
     fadeIn: false,
     fadeOut: false,
-    loop: false,
-    startDelay: 0,
-    endDelay: 0,
+    loop: true,
+    delay: 1,
   },
   text: {
-    userText: "Default Text",
-    fontSize: "100px",
+    userText: "Quick Animations",
+    fontSize: 50,
+    fontWeight: 400,
     fontFamily: "satoshi",
   },
 };
