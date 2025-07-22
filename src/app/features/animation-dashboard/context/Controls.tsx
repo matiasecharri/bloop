@@ -14,8 +14,11 @@ export const CONTROLS_ACTIONS = {
 } as const;
 
 export type ControlsAction =
-  | { type: typeof CONTROLS_ACTIONS.TEXT; payload: TextSettings }
-  | { type: typeof CONTROLS_ACTIONS.ANIMATIONS; payload: AnimationSettings };
+  | { type: typeof CONTROLS_ACTIONS.TEXT; payload: Partial<TextSettings> }
+  | {
+      type: typeof CONTROLS_ACTIONS.ANIMATIONS;
+      payload: Partial<AnimationSettings>;
+    };
 
 //REDUCER
 const controlReducer = (
@@ -85,3 +88,15 @@ export const ControlsProvider = ({ children }: ControlsProviderProps) => {
     </ControlsContext.Provider>
   );
 };
+
+// export const useControlsActions = () => {
+//   const { dispatch } = useControls();
+
+//   const setText = (payload: Partial<TextSettings>) =>
+//     dispatch({ type: CONTROLS_ACTIONS.TEXT, payload });
+
+//   const setAnimations = (payload: Partial<AnimationSettings>) =>
+//     dispatch({ type: CONTROLS_ACTIONS.ANIMATIONS, payload });
+
+//   return { setText, setAnimations };
+// };
