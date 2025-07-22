@@ -20,11 +20,11 @@ const Visualizer = () => {
     const text = textRef.current;
 
     gsap.to(text, {
-      opacity: 0,
+      opacity: 1,
       ease: "power1",
       duration: animations.duration,
-      yoyo: true,
       delay: animations.delay,
+      yoyo: animations.loop ? true : false,
       repeat: animations.loop ? -1 : 0,
     });
   }, [animations]);
