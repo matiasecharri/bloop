@@ -3,7 +3,12 @@ import { capitalize } from "@/shared/utilities";
 import { IconConfig } from "@/assets/svg";
 import s from "./TextPicker.module.css";
 import { PickerWrapper } from "@/shared/components/molecules";
-import { PickerStep, Subtitle, Title } from "@/shared/components/atoms";
+import {
+  InputRange,
+  PickerStep,
+  Subtitle,
+  Title,
+} from "@/shared/components/atoms";
 
 const TextPicker = () => {
   const { state, dispatch } = useControls();
@@ -37,20 +42,14 @@ const TextPicker = () => {
       <PickerStep>
         <Subtitle text="Font properties" step="03" />
         <div className={s.inputsWrapper}>
-          <p>
-            <strong>Size:</strong> {text.fontSize}px /{" "}
-            {(text.fontSize / 16).toFixed(2)}rem
-          </p>
-          <input
-            className={s.inputRange}
-            type="range"
+          <InputRange
+            label={`Size`}
+            unit={`px /          
+            ${(text.fontSize / 16).toFixed(2)} rem
+              `}
             min={12}
             max={200}
             value={text.fontSize}
-            style={{
-              // @ts-ignore
-              "--progress": `${((text.fontSize - 12) / (200 - 12)) * 100}%`,
-            }}
             onChange={(e) =>
               dispatch({
                 type: CONTROLS_ACTIONS.TEXT,
@@ -58,20 +57,13 @@ const TextPicker = () => {
               })
             }
           />
-          <p>
-            <strong>Weight:</strong> {text.fontWeight}
-          </p>
-          <input
-            className={s.inputRange}
-            type="range"
+
+          <InputRange
+            label="weight"
             min={100}
             max={900}
             step={100}
             value={text.fontWeight}
-            style={{
-              // @ts-ignore
-              "--progress": `${((text.fontWeight - 100) / (900 - 100)) * 100}%`,
-            }}
             onChange={(e) =>
               dispatch({
                 type: CONTROLS_ACTIONS.TEXT,

@@ -1,3 +1,4 @@
-export { default as Title } from "./title/Title";
+export { default as InputRange } from "./input-range/InputRange";
+export { default as PickerStep } from "../molecules/picker-step/PickerStep";
 export { default as Subtitle } from "./subtitle/Subtitle";
-export { default as PickerStep } from "./picker-step/PickerStep";
+export { default as Title } from "./title/Title";

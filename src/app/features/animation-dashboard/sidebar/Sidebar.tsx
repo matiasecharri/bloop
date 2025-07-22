@@ -15,6 +15,7 @@ import {
   IconPresets,
   IconText,
 } from "@/assets/svg";
+import { TransitionWrapper } from "@/shared/components/molecules";
 import { capitalize } from "@/shared/utilities";
 import s from "./Sidebar.module.css";
 
@@ -74,7 +75,11 @@ const Sidebar = () => {
           </button>
         ))}
       </section>
-      <section className={s.currentPicker}>{currentTab?.component}</section>
+      <section className={s.currentPicker}>
+        <TransitionWrapper state={selectedTab}>
+          {currentTab?.component}
+        </TransitionWrapper>
+      </section>
     </aside>
   );
 };
