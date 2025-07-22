@@ -1,7 +1,7 @@
 import { CONTROLS_ACTIONS, useControls } from "../../../context";
 import { capitalize } from "@/shared/utilities";
-import s from "./TextPicker.module.css";
 import { IconConfig } from "@/assets/svg";
+import s from "./TextPicker.module.css";
 
 const TextPicker = () => {
   const { state, dispatch } = useControls();
@@ -22,7 +22,7 @@ const TextPicker = () => {
             type="text"
             value={text.userText}
             className={s.input}
-            placeholder="Quick animations is funny!"
+            placeholder="Quick animations is really quick"
             onChange={(e) =>
               dispatch({
                 type: CONTROLS_ACTIONS.TEXT,
@@ -42,13 +42,20 @@ const TextPicker = () => {
             <strong>03.</strong> Font Properties
           </h3>
           <div className={s.inputsWrapper}>
-            <p><strong>Size:</strong> {text.fontSize}px / {(text.fontSize / 16).toFixed(2)}rem</p>
+            <p>
+              <strong>Size:</strong> {text.fontSize}px /{" "}
+              {(text.fontSize / 16).toFixed(2)}rem
+            </p>
             <input
               className={s.inputRange}
               type="range"
               min={12}
               max={200}
               value={text.fontSize}
+              style={{
+                // @ts-ignore
+                '--progress': `${((text.fontSize - 12) / (200 - 12)) * 100}%`
+              }}
               onChange={(e) =>
                 dispatch({
                   type: CONTROLS_ACTIONS.TEXT,
@@ -56,7 +63,9 @@ const TextPicker = () => {
                 })
               }
             />
-            <p><strong>Weight:</strong> {text.fontWeight}</p>
+            <p>
+              <strong>Weight:</strong> {text.fontWeight}
+            </p>
             <input
               className={s.inputRange}
               type="range"
@@ -64,6 +73,10 @@ const TextPicker = () => {
               max={900}
               step={100}
               value={text.fontWeight}
+              style={{
+                // @ts-ignore
+                '--progress': `${((text.fontWeight - 100) / (900 - 100)) * 100}%`
+              }}
               onChange={(e) =>
                 dispatch({
                   type: CONTROLS_ACTIONS.TEXT,
