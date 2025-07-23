@@ -35,7 +35,7 @@ const InputRange = ({
         style={
           {
             ["--progress"]: `${((value - min) / (max - min)) * 100}%`,
-          } as React.CSSPropertie
+          } as React.CSSProperties
         }
         type="range"
         value={value}
