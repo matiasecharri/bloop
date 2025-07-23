@@ -1,4 +1,8 @@
-import { CONTROLS_ACTIONS, useControls } from "../../../context";
+import {
+  CONTROLS_ACTIONS,
+  defaultControlsSettings,
+  useControls,
+} from "../../../context";
 import { capitalize } from "@/shared/utilities";
 import { IconConfig } from "@/assets/svg";
 import s from "./TextPicker.module.css";
@@ -41,51 +45,71 @@ const TextPicker = () => {
       </PickerStep>
       <PickerStep>
         <Subtitle step="03" text="Font properties" />
-          <InputRange
-            label={`Size`}
-            max={200}
-            min={12}
-            unit={`px |          
+        <InputRange
+          label={`Size`}
+          max={200}
+          min={12}
+          unit={`px |          
             ${(text.fontSize / 16).toFixed(2)} rem
               `}
-            value={text.fontSize}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
-                payload: { fontSize: Number(e.target.value) },
-              })
-            }
-          />
+          value={text.fontSize}
+          onChange={(e) =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { fontSize: Number(e.target.value) },
+            })
+          }
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { fontSize: defaultControlsSettings.text.fontSize },
+            })
+          }
+        />
 
-          <InputRange
-            label="weight"
-            max={900}
-            min={100}
-            step={100}
-            value={text.fontWeight}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
-                payload: { fontWeight: Number(e.target.value) },
-              })
-            }
-          />
-          <InputRange
-            label="kerning"
-            max={40}
-            min={-20}
-            step={0.1}
-            unit={`px |          
+        <InputRange
+          label="weight"
+          max={900}
+          min={100}
+          step={100}
+          value={text.fontWeight}
+          onChange={(e) =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { fontWeight: Number(e.target.value) },
+            })
+          }
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { fontWeight: defaultControlsSettings.text.fontWeight },
+            })
+          }
+        />
+        <InputRange
+          label="kerning"
+          max={40}
+          min={-20}
+          step={0.1}
+          unit={`px |          
             ${(text.letterSpacing / 16).toFixed(2)} rem
               `}
-            value={text.letterSpacing}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
-                payload: { letterSpacing: Number(e.target.value) },
-              })
-            }
-          />
+          value={text.letterSpacing}
+          onChange={(e) =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { letterSpacing: Number(e.target.value) },
+            })
+          }
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: {
+                letterSpacing: defaultControlsSettings.text.letterSpacing,
+              },
+            })
+          }
+        />
       </PickerStep>
     </PickerWrapper>
   );

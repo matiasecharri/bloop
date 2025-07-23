@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useReducer } from "react";
 import {
   AnimationSettings,
   ControlsSettings,
-  DefaultControlsSettings,
+  defaultControlsSettings,
   TextSettings,
 } from "./controlsTypes";
 import { withLogger } from "@/shared/utilities";
@@ -79,7 +79,7 @@ export const useControls = () => {
 export const ControlsProvider = ({ children }: ControlsProviderProps) => {
   const [state, dispatch] = useReducer(
     withLogger(controlReducer),
-    DefaultControlsSettings
+    defaultControlsSettings
   );
 
   return (

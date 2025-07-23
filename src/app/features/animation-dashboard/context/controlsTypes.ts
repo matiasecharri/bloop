@@ -23,7 +23,7 @@ export interface ControlsSettings {
   text: TextSettings;
 }
 
-export const DefaultControlsSettings: ControlsSettings = {
+export const defaultControlsSettings: ControlsSettings = {
   animations: {
     duration: 2,
     fadeIn: false,

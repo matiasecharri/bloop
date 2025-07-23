@@ -1,0 +1,23 @@
+.resetBtn {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: red;
+  border-radius: 50%;
+  border-radius: 50%;
+  border-radius: 50%;
+  border-radius: 50%;
+  border-radius: 50%;
+}
+
+.resetBtn svg {
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}

@@ -1,5 +1,6 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent } from "react";
 import s from "./InputRange.module.css";
+import { ResetButton } from "../../atoms";
 
 interface InputRangeProps {
   label: string;
@@ -9,6 +10,7 @@ interface InputRangeProps {
   step?: number;
   unit?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const InputRange = ({
@@ -19,9 +21,13 @@ const InputRange = ({
   step,
   unit,
   onChange,
+  onClick,
 }: InputRangeProps) => {
   return (
     <div className={s.inputWrapper}>
+      {!!onClick && (
+        <ResetButton ariaLabel={`reset ${value}`} onClick={onClick} />
+      )}
       <p>
         <strong>{label}:</strong> {value} {unit}
       </p>

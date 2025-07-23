@@ -4,5 +4,6 @@ export { default as IconConfig } from "./IconConfig";
 export { default as IconDownload } from "./IconDownload";
 export { default as IconPalette } from "./IconPalette";
 export { default as IconPresets } from "./IconPresets";
+export { default as IconReset } from "./IconReset";
 export { default as IconRightArrow } from "./IconRightArrow";
 export { default as IconText } from "./IconText";
