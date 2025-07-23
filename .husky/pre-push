@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+branch_name="$(git symbolic-ref --short HEAD)"
+
+if [ "$branch_name" = "main" ]; then
+  echo "Running build before push to main..."
+  npm run build || {
+    echo "Build failed. Push aborted."
+    exit 1
+  }
+else
+  echo "Not main branch, skipping build check."
+fi
