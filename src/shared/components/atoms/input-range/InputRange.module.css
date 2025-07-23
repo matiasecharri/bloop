@@ -64,3 +64,27 @@
   background: rgb(17 15 15);
   border-radius: 5px;
 }
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: satoshi, sans-serif;
+  border: none;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.inputWrapper p {
+  margin-bottom: 8px;
+  font-family: satoshi, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--color-light);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.inputWrapper input {
+  margin-bottom: 20px;
+}

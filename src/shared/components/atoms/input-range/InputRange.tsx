@@ -21,7 +21,7 @@ const InputRange = ({
   onChange,
 }: InputRangeProps) => {
   return (
-    <div>
+    <div className={s.inputWrapper}>
       <p>
         <strong>{label}:</strong> {value} {unit}
       </p>
