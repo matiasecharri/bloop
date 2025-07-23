@@ -1,18 +1,17 @@
 .title {
-  color: var(--color-light);
-  font-family: "satoshi";
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  display: flex;
-  gap: 6px;
-  text-transform: uppercase;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 16px;
+  font-family: satoshi, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-light);
+  text-transform: uppercase;
+  gap: 6px;
 }
 
 .title svg {
-  height: 1.5rem;
   width: 1.5rem;
+  height: 1.5rem;
 }

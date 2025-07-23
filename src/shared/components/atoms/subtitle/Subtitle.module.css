@@ -1,9 +1,9 @@
 .subtitle {
-  color: var(--color-light);
-  font-family: "satoshi";
+  font-family: satoshi, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.8px;
-  opacity: 0.9;
+  color: var(--color-light);
   text-transform: uppercase;
+  opacity: 0.9;
 }
