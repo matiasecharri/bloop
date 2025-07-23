@@ -26,16 +26,19 @@ const InputRange = ({
         <strong>{label}:</strong> {value} {unit}
       </p>
       <input
+        id={label}
+        aria-labelledby={label}
         className={s.inputRange}
+        style={
+          {
+            ["--progress"]: `${((value - min) / (max - min)) * 100}%`,
+          } as React.CSSProperties
+        }
         type="range"
+        value={value}
         min={min}
         max={max}
-        step={step || 0}
-        value={value}
-        style={{
-          // @ts-ignore
-          "--progress": `${((value - min) / (max - min)) * 100}%`,
-        }}
+        step={step ?? 1}
         onChange={onChange}
       />
     </div>
