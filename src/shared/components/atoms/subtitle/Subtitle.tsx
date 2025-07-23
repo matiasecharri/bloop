@@ -8,7 +8,7 @@ interface SubtitleProps {
 const Subtitle = ({ text, step }: SubtitleProps) => {
   return (
     <h3 className={s.subtitle}>
-      <strong>{step}.</strong>{" "}
+      {step && <strong>{`${step}.`}</strong>}{" "}
       {text}
     </h3>
   );

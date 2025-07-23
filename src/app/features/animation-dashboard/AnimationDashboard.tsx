@@ -4,7 +4,7 @@ import { Sidebar } from "./sidebar";
 import { Visualizer } from "./visualizer";
 import s from "./AnimationDashboard.module.css";
 
-const AnimationDasboard = () => {
+const AnimationDashboard = () => {
   return (
     <ControlsProvider>
       <main className={s.dashboard}>
@@ -15,4 +15,4 @@ const AnimationDasboard = () => {
   );
 };
 
-export default AnimationDasboard;
+export default AnimationDashboard;
