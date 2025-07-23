@@ -21,7 +21,7 @@ const TextPicker = () => {
         <IconConfig />
       </Title>
       <PickerStep>
-        <Subtitle step="01" text="Add your text here" />
+        <Subtitle step="01" text="Add your text" />
         <input
           className={s.input}
           placeholder="Quick animations is really quick"
@@ -41,7 +41,6 @@ const TextPicker = () => {
       </PickerStep>
       <PickerStep>
         <Subtitle step="03" text="Font properties" />
-        <div className={s.inputsWrapper}>
           <InputRange
             label={`Size`}
             max={200}
@@ -87,7 +86,6 @@ const TextPicker = () => {
               })
             }
           />
-        </div>
       </PickerStep>
     </PickerWrapper>
   );

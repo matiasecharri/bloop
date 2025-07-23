@@ -14,10 +14,10 @@ const AnimationPicker = () => {
         <IconConfig />
       </Title>
       <PickerStep>
-        <Subtitle step="04"text="Choose the animation"/>
+        <Subtitle step="04"text="pick your animation"/>
       </PickerStep>
       <PickerStep>
-        <Subtitle step="05" text="Customize the properties" />
+        <Subtitle step="05" text="animation properties" />
         <InputRange
           label="Duration"
           max={3}
