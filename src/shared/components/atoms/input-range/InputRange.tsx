@@ -3,21 +3,21 @@ import s from "./InputRange.module.css";
 
 interface InputRangeProps {
   label: string;
-  value: number;
-  unit?: string;
-  min: number;
   max: number;
+  min: number;
+  value: number;
   step?: number;
+  unit?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputRange = ({
   label,
-  value,
-  unit,
-  min,
   max,
+  min,
+  value,
   step,
+  unit,
   onChange,
 }: InputRangeProps) => {
   return (
@@ -26,9 +26,12 @@ const InputRange = ({
         <strong>{label}:</strong> {value} {unit}
       </p>
       <input
-        id={label}
         aria-labelledby={label}
         className={s.inputRange}
+        id={label}
+        max={max}
+        min={min}
+        step={step ?? 1}
         style={
           {
             ["--progress"]: `${((value - min) / (max - min)) * 100}%`,
@@ -36,9 +39,6 @@ const InputRange = ({
         }
         type="range"
         value={value}
-        min={min}
-        max={max}
-        step={step ?? 1}
         onChange={onChange}
       />
     </div>

@@ -65,8 +65,8 @@ const Sidebar = () => {
             key={tabName}
             aria-label={tabName}
             className={clsx(s.btn, tabName === selectedTab ? s.btnActive : "")}
-            onClick={() => setSelectedTab(tabName)}
             type="button"
+            onClick={() => setSelectedTab(tabName)}
           >
             <span>
               {icon}

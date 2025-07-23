@@ -11,6 +11,26 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    rules: {
+      // Solo advertir si props JSX no están ordenadas
+      "react/jsx-sort-props": [
+        "warn",
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          ignoreCase: true,
+          reservedFirst: true,
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;

@@ -65,7 +65,7 @@ export default function GlobalLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${satoshi.variable}`}>
+    <html className={`${satoshi.variable}`} lang="en">
       <body>
           {children}
       </body>

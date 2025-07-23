@@ -21,12 +21,12 @@ const TextPicker = () => {
         <IconConfig />
       </Title>
       <PickerStep>
-        <Subtitle text="Add your text here" step="01" />
+        <Subtitle step="01" text="Add your text here" />
         <input
-          type="text"
-          value={text.userText}
           className={s.input}
           placeholder="Quick animations is really quick"
+          type="text"
+          value={text.userText}
           onChange={(e) =>
             dispatch({
               type: CONTROLS_ACTIONS.TEXT,
@@ -36,19 +36,19 @@ const TextPicker = () => {
         />
       </PickerStep>
       <PickerStep>
-        <Subtitle text="Font family" step="02" />
+        <Subtitle step="02" text="Font family" />
         <p className={s.fontFamily}>{capitalize(text.fontFamily)}</p>
       </PickerStep>
       <PickerStep>
-        <Subtitle text="Font properties" step="03" />
+        <Subtitle step="03" text="Font properties" />
         <div className={s.inputsWrapper}>
           <InputRange
             label={`Size`}
+            max={200}
+            min={12}
             unit={`px /          
             ${(text.fontSize / 16).toFixed(2)} rem
               `}
-            min={12}
-            max={200}
             value={text.fontSize}
             onChange={(e) =>
               dispatch({
@@ -60,8 +60,8 @@ const TextPicker = () => {
 
           <InputRange
             label="weight"
-            min={100}
             max={900}
+            min={100}
             step={100}
             value={text.fontWeight}
             onChange={(e) =>

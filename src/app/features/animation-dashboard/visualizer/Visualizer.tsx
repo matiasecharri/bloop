@@ -31,7 +31,7 @@ const Visualizer = () => {
 
   return (
     <section className={s.visualizer}>
-      <p style={dynamicStyles} ref={textRef}>
+      <p ref={textRef} style={dynamicStyles}>
         {text.userText}
       </p>
     </section>
