@@ -15,6 +15,7 @@ export interface TextSettings {
   fontSize: number;
   fontWeight: number;
   fontFamily: string;
+  letterSpacing: number;
 }
 
 export interface ControlsSettings {
@@ -35,5 +36,6 @@ export const DefaultControlsSettings: ControlsSettings = {
     fontSize: 50,
     fontWeight: 400,
     fontFamily: "satoshi",
+    letterSpacing: 0,
   },
 };

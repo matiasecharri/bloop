@@ -46,7 +46,7 @@ const TextPicker = () => {
             label={`Size`}
             max={200}
             min={12}
-            unit={`px /          
+            unit={`px |          
             ${(text.fontSize / 16).toFixed(2)} rem
               `}
             value={text.fontSize}
@@ -68,6 +68,22 @@ const TextPicker = () => {
               dispatch({
                 type: CONTROLS_ACTIONS.TEXT,
                 payload: { fontWeight: Number(e.target.value) },
+              })
+            }
+          />
+          <InputRange
+            label="kerning"
+            max={40}
+            min={-20}
+            step={0.1}
+            unit={`px |          
+            ${(text.letterSpacing / 16).toFixed(2)} rem
+              `}
+            value={text.letterSpacing}
+            onChange={(e) =>
+              dispatch({
+                type: CONTROLS_ACTIONS.TEXT,
+                payload: { letterSpacing: Number(e.target.value) },
               })
             }
           />

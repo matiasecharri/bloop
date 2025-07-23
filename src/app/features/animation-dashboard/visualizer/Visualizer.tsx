@@ -14,6 +14,7 @@ const Visualizer = () => {
     fontSize: text.fontSize,
     fontWeight: text.fontWeight,
     fontFamily: text.fontFamily,
+    letterSpacing: text.letterSpacing,
   };
 
   useGSAP(() => {
