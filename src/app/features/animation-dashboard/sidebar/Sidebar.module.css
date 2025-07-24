@@ -90,6 +90,7 @@
   height: 100%;
   max-height: calc(100dvh - (var(--nav-height)));
   padding: 20px;
+  overflow-y: scroll;
   border-right: 1px solid var(--color-border-light);
 }
 
