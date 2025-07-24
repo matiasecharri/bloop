@@ -20,14 +20,29 @@ const Visualizer = () => {
   useGSAP(() => {
     const text = textRef.current;
 
-    gsap.to(text, {
+    gsap.set(text, {
       opacity: 1,
-      ease: "power1",
+      ease: animations.easing,
       duration: animations.duration,
       delay: animations.delay,
-      yoyo: animations.loop ? true : false,
-      repeat: animations.loop ? -1 : 0,
+      yoyo: true,
+      repeat: -1,
     });
+
+    gsap.fromTo(
+      text,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        ease: animations.easing,
+        duration: animations.duration,
+        delay: animations.delay,
+        yoyo: true,
+        repeat: -1,
+      }
+    );
   }, [animations]);
 
   return (

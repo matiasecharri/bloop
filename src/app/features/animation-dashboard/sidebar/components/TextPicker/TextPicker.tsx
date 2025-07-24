@@ -5,13 +5,13 @@ import {
   defaultControlsSettings,
   useControls,
 } from "../../../context";
+import { Subtitle, Title } from "@/shared/components/atoms";
 import {
   InputRange,
   PickerStep,
-  Subtitle,
-  Title,
-} from "@/shared/components/atoms";
-import { PickerWrapper, RangeWrapper } from "@/shared/components/molecules";
+  PickerWrapper,
+  RangeWrapper,
+} from "@/shared/components/molecules";
 import s from "./TextPicker.module.css";
 
 const TextPicker = () => {

@@ -1,0 +1,38 @@
+.button {
+  position: relative;
+  padding: 14px 10px;
+  font-family: satoshi, sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-light);
+  cursor: pointer;
+  background-color: #242424;
+  border: none;
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.button::after {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.6s ease;
+  transform: translateY(-50%) scale(0);
+  content: "";
+}
+
+.active {
+  background-color: rgb(0 0 0 / 0%);
+  transition: 0.3s ease-in-out;
+}
+
+.active::after {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transform: translateY(-50%) scale(1);
+}

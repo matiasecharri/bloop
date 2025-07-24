@@ -1,12 +1,18 @@
-import { PickerStep, PickerWrapper } from "@/shared/components/molecules";
 import {
   CONTROLS_ACTIONS,
   defaultControlsSettings,
+  easings,
   useControls,
 } from "../../../context";
-import { InputRange, Subtitle, Title } from "@/shared/components/atoms";
-import { RangeWrapper } from "@/shared/components/molecules";
 import { IconConfig } from "@/assets/svg";
+import { Button, Subtitle, Title } from "@/shared/components/atoms";
+import {
+  InputRange,
+  PickerStep,
+  PickerWrapper,
+  ScrollerWrapper,
+} from "@/shared/components/molecules";
+import { RangeWrapper } from "@/shared/components/molecules";
 
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
@@ -24,6 +30,23 @@ const AnimationPicker = () => {
       </Title>
       <PickerStep>
         <Subtitle step="04" text="pick your animation" />
+        <ScrollerWrapper subtitle={animations.easing} title="Easing:">
+          {easings.map((gsapEasing) => (
+            <Button
+              key={gsapEasing}
+              isActive={gsapEasing === animations.easing}
+              text={gsapEasing}
+              onClick={() =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: {
+                    easing: gsapEasing,
+                  },
+                })
+              }
+            />
+          ))}
+        </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
         <Subtitle step="05" text="animation properties" />
@@ -55,7 +78,7 @@ const AnimationPicker = () => {
             isBtnDisabled={isAnimationDefault("delay")}
             label="Delay"
             max={3}
-            min={0.1}
+            min={0.0}
             step={0.1}
             unit="secs"
             value={animations.delay}
@@ -74,6 +97,23 @@ const AnimationPicker = () => {
               })
             }
           />
+          <ScrollerWrapper subtitle={animations.easing} title="Easing:">
+            {easings.map((gsapEasing) => (
+              <Button
+                key={gsapEasing}
+                isActive={gsapEasing === animations.easing}
+                text={gsapEasing}
+                onClick={() =>
+                  dispatch({
+                    type: CONTROLS_ACTIONS.ANIMATIONS,
+                    payload: {
+                      easing: gsapEasing,
+                    },
+                  })
+                }
+              />
+            ))}
+          </ScrollerWrapper>
         </RangeWrapper>
       </PickerStep>
     </PickerWrapper>
