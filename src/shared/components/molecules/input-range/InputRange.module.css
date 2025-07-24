@@ -17,10 +17,7 @@
   color: var(--color-light);
   text-transform: uppercase;
   opacity: 0.8;
-}
-
-.inputWrapper input {
-  margin-bottom: 20px;
+  pointer-events: none;
 }
 
 .inputRange {
