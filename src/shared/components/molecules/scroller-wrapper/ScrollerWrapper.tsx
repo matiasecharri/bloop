@@ -10,7 +10,7 @@ interface ScrollerWrapperProps {
   subtitle?: string;
   children: ReactNode;
   isBtnDisabled?: boolean;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const ScrollerWrapper = ({
@@ -31,12 +31,18 @@ const ScrollerWrapper = ({
     <section>
       <p className={s.title}>
         <div className={s.floating}>
+          {!!onClick && (
+            <MiniButton
+              ariaLabel={`reset ${title} to default`}
+              disabled={isBtnDisabled}
+              onClick={onClick}
+            />
+          )}
           <MiniButton
-            ariaLabel={`reset ${title} to default`}
-            disabled={isBtnDisabled}
-            onClick={onClick}
-          />
-          <MiniButton noAnimation ariaLabel={ariaLabelMessage} onClick={toggleExpanded}>
+            noAnimation
+            ariaLabel={ariaLabelMessage}
+            onClick={toggleExpanded}
+          >
             {isExpanded ? <IconCompress /> : <IconExpand />}
           </MiniButton>
         </div>

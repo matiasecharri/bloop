@@ -5,11 +5,7 @@ import {
   useControls,
 } from "../../../context";
 import { IconConfig } from "@/assets/svg";
-import {
-  Button,
-  Subtitle,
-  Title,
-} from "@/shared/components/atoms";
+import { Button, Subtitle, Title } from "@/shared/components/atoms";
 import {
   InputRange,
   PickerStep,
@@ -35,32 +31,32 @@ const AnimationPicker = () => {
       <PickerStep>
         <Subtitle step="04" text="pick your animation" />
         <ScrollerWrapper
-            isBtnDisabled={isAnimationDefault("easing")}
-            subtitle={animations.easing}
-            title="Easing:"
-            onClick={() =>
-              dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
-                payload: { easing: defaultControlsSettings.animations.easing },
-              })
-            }
-          >
-            {easings.map((gsapEasing) => (
-              <Button
-                key={gsapEasing}
-                isActive={gsapEasing === animations.easing}
-                text={gsapEasing}
-                onClick={() =>
-                  dispatch({
-                    type: CONTROLS_ACTIONS.ANIMATIONS,
-                    payload: {
-                      easing: gsapEasing,
-                    },
-                  })
-                }
-              />
-            ))}
-          </ScrollerWrapper>
+          isBtnDisabled={isAnimationDefault("easing")}
+          subtitle={animations.easing}
+          title="Easing:"
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.ANIMATIONS,
+              payload: { easing: defaultControlsSettings.animations.easing },
+            })
+          }
+        >
+          {easings.map((gsapEasing) => (
+            <Button
+              key={gsapEasing}
+              isActive={gsapEasing === animations.easing}
+              text={gsapEasing}
+              onClick={() =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: {
+                    easing: gsapEasing,
+                  },
+                })
+              }
+            />
+          ))}
+        </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
         <Subtitle step="05" text="animation properties" />
@@ -163,7 +159,6 @@ const AnimationPicker = () => {
               })
             }
           />
-
           <ScrollerWrapper
             isBtnDisabled={isAnimationDefault("easing")}
             subtitle={animations.easing}
@@ -198,8 +193,3 @@ const AnimationPicker = () => {
 };
 
 export default AnimationPicker;
-// <p>Duration: {animations.duration}</p>
-// <p>Delay: {animations.delay}</p>
-// <p>FadeIn: {animations.fadeIn ? "true" : "false"}</p>
-// <p>FadeOut: {animations.fadeOut ? "true" : "false"}</p>
-// <p>Loop: {animations.loop ? "true" : "false"}</p>
