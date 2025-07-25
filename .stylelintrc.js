@@ -24,6 +24,7 @@ module.exports = {
         "justify-content",
         "align-items",
         "align-content",
+        "gap",
         "order",
         "float",
         "width",

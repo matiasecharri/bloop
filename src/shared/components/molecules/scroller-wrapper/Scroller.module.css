@@ -1,15 +1,16 @@
 .scroller {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   width: 100%;
-  max-height: 200px;
+  min-height: 204px;
+  max-height: 204px;
   padding: 10px;
   overflow-y: scroll;
   background-color: var(--color-dark-accent-alt);
   border: 1px solid var(--color-border-light);
   border-radius: 10px;
   transition: max-height 0.4s ease;
-  gap: 10px;
 }
 
 .expanded {

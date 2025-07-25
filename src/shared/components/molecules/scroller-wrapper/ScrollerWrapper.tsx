@@ -1,9 +1,9 @@
 "use client";
 import { MouseEvent, ReactNode, useState } from "react";
-import s from "./Scroller.module.css";
 import clsx from "clsx";
 import { MiniButton } from "../../atoms";
 import { IconCompress, IconExpand } from "@/assets/svg";
+import s from "./Scroller.module.css";
 
 interface ScrollerWrapperProps {
   title: string;
