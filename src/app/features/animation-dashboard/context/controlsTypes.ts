@@ -91,11 +91,14 @@ export const defaultControlsSettings: ControlsSettings = {
 };
 
 /**
- * TO-DO: Add a button to reset everything
- * TO-DO: Add a tool-tip in every animation field
+ * TO-DO: Implement animations
+ * 
  * TO-DO: Replace yoyo with a button instead of a range
- * TO-DO: Separate every animation field in it's own component
- * TO-DO: Add an arrow to Scroller component
+ * TO-DO: Add a tool-tip in every animation field
  *
+ * TO-DO: Separate every animation field in it's own component
+ *
+ * TO-DO: Add an arrow to Scroller component
+ * TO-DO: Add a button to reset everything
  *
  */
