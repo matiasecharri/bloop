@@ -75,11 +75,11 @@ export interface ControlsSettings {
 
 export const defaultControlsSettings: ControlsSettings = {
   animations: {
-    duration: 2,
+    duration: 0.5,
     repeat: 0,
     yoyo: false,
     delay: 0,
-    easing: "power1.in",
+    easing: "power1",
   },
   text: {
     userText: "Quick Animations",
