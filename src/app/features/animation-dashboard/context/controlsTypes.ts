@@ -1,6 +1,5 @@
-// interface ColorSettings {}
+//Animations
 
-// interface BackgroundSettings {}
 export const easings = [
   "none",
   "power1",
@@ -49,12 +48,13 @@ export type Easing = (typeof easings)[number];
 
 export interface AnimationSettings {
   duration: number;
-  fadeIn: boolean;
-  fadeOut: boolean;
-  loop: boolean;
+  yoyo: boolean;
+  repeat: number;
   delay: number;
   easing: Easing;
 }
+
+//Text
 
 export interface TextSettings {
   userText: string;
@@ -64,17 +64,20 @@ export interface TextSettings {
   letterSpacing: number;
 }
 
+//Combined Interfaces
+
 export interface ControlsSettings {
   animations: AnimationSettings;
   text: TextSettings;
 }
 
+//Default Settings
+
 export const defaultControlsSettings: ControlsSettings = {
   animations: {
     duration: 2,
-    fadeIn: false,
-    fadeOut: false,
-    loop: true,
+    repeat: 0,
+    yoyo: false,
     delay: 0,
     easing: "power1.in",
   },
@@ -86,3 +89,13 @@ export const defaultControlsSettings: ControlsSettings = {
     letterSpacing: 0,
   },
 };
+
+/**
+ * TO-DO: Add a button to reset everything
+ * TO-DO: Add a tool-tip in every animation field
+ * TO-DO: Replace yoyo with a button instead of a range
+ * TO-DO: Separate every animation field in it's own component
+ * TO-DO: Add an arrow to Scroller component
+ *
+ *
+ */

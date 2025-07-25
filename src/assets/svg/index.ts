@@ -1,7 +1,9 @@
 export { default as IconAnimation } from "./IconAnimation";
 export { default as IconBackground } from "./IconBackground";
+export { default as IconCompress } from "./IconCompress";
 export { default as IconConfig } from "./IconConfig";
 export { default as IconDownload } from "./IconDownload";
+export { default as IconExpand } from "./IconExpand";
 export { default as IconPalette } from "./IconPalette";
 export { default as IconPresets } from "./IconPresets";
 export { default as IconReset } from "./IconReset";

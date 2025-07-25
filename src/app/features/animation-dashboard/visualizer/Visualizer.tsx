@@ -20,13 +20,15 @@ const Visualizer = () => {
   useGSAP(() => {
     const text = textRef.current;
 
+    gsap.killTweensOf(text);
+
     gsap.set(text, {
       opacity: 1,
       ease: animations.easing,
       duration: animations.duration,
       delay: animations.delay,
-      yoyo: true,
-      repeat: -1,
+      repeat: animations.repeat,
+      yoyo: animations.yoyo,
     });
 
     gsap.fromTo(
@@ -39,8 +41,8 @@ const Visualizer = () => {
         ease: animations.easing,
         duration: animations.duration,
         delay: animations.delay,
-        yoyo: true,
-        repeat: -1,
+        repeat: animations.repeat,
+        yoyo: animations.yoyo,
       }
     );
   }, [animations]);

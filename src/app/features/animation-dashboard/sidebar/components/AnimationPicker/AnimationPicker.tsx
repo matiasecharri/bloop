@@ -5,7 +5,11 @@ import {
   useControls,
 } from "../../../context";
 import { IconConfig } from "@/assets/svg";
-import { Button, Subtitle, Title } from "@/shared/components/atoms";
+import {
+  Button,
+  Subtitle,
+  Title,
+} from "@/shared/components/atoms";
 import {
   InputRange,
   PickerStep,
@@ -30,23 +34,33 @@ const AnimationPicker = () => {
       </Title>
       <PickerStep>
         <Subtitle step="04" text="pick your animation" />
-        <ScrollerWrapper subtitle={animations.easing} title="Easing:">
-          {easings.map((gsapEasing) => (
-            <Button
-              key={gsapEasing}
-              isActive={gsapEasing === animations.easing}
-              text={gsapEasing}
-              onClick={() =>
-                dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
-                  payload: {
-                    easing: gsapEasing,
-                  },
-                })
-              }
-            />
-          ))}
-        </ScrollerWrapper>
+        <ScrollerWrapper
+            isBtnDisabled={isAnimationDefault("easing")}
+            subtitle={animations.easing}
+            title="Easing:"
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { easing: defaultControlsSettings.animations.easing },
+              })
+            }
+          >
+            {easings.map((gsapEasing) => (
+              <Button
+                key={gsapEasing}
+                isActive={gsapEasing === animations.easing}
+                text={gsapEasing}
+                onClick={() =>
+                  dispatch({
+                    type: CONTROLS_ACTIONS.ANIMATIONS,
+                    payload: {
+                      easing: gsapEasing,
+                    },
+                  })
+                }
+              />
+            ))}
+          </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
         <Subtitle step="05" text="animation properties" />
@@ -97,7 +111,70 @@ const AnimationPicker = () => {
               })
             }
           />
-          <ScrollerWrapper subtitle={animations.easing} title="Easing:">
+          <InputRange
+            isBtnDisabled={isAnimationDefault("repeat")}
+            label="Repeat"
+            max={10}
+            min={-1}
+            step={1}
+            unit={
+              animations.repeat === -1
+                ? "Loop"
+                : animations.repeat === 1
+                ? "Time"
+                : "Times"
+            }
+            value={animations.repeat}
+            onChange={(e) =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { repeat: Number(e.target.value) },
+              })
+            }
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: {
+                  repeat: defaultControlsSettings.animations.repeat,
+                },
+              })
+            }
+          />
+          <InputRange
+            isBtnDisabled={isAnimationDefault("yoyo")}
+            label="Yoyo"
+            max={1}
+            min={0}
+            step={1}
+            unit={animations.yoyo ? "Enabled" : "Disabled"}
+            value={Number(animations.yoyo)}
+            onChange={(e) =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { yoyo: Boolean(e.target.value) },
+              })
+            }
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: {
+                  yoyo: defaultControlsSettings.animations.yoyo,
+                },
+              })
+            }
+          />
+
+          <ScrollerWrapper
+            isBtnDisabled={isAnimationDefault("easing")}
+            subtitle={animations.easing}
+            title="Easing:"
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { easing: defaultControlsSettings.animations.easing },
+              })
+            }
+          >
             {easings.map((gsapEasing) => (
               <Button
                 key={gsapEasing}
