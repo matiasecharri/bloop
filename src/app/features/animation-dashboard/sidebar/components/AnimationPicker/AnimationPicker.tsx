@@ -7,6 +7,7 @@ import {
 import { IconConfig } from "@/assets/svg";
 import { Button, Subtitle, Title } from "@/shared/components/atoms";
 import {
+  ButtonWrapper,
   InputRange,
   PickerStep,
   PickerWrapper,
@@ -136,7 +137,8 @@ const AnimationPicker = () => {
               })
             }
           />
-          <InputRange
+
+          {/* <InputRange
             isBtnDisabled={isAnimationDefault("yoyo")}
             label="Yoyo"
             max={1}
@@ -158,7 +160,35 @@ const AnimationPicker = () => {
                 },
               })
             }
-          />
+          /> */}
+
+          <ButtonWrapper
+            title="Yoyo:"
+            subtitle={animations.yoyo ? "activated" : "deactivated"}
+          >
+            <Button
+              isActive={animations.yoyo}
+              text="On"
+              onClick={() => {
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: { yoyo: true },
+                });
+              }}
+            />
+
+            <Button
+              isActive={!animations.yoyo}
+              text="Off"
+              onClick={() => {
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: { yoyo: false },
+                });
+              }}
+            />
+          </ButtonWrapper>
+
           <ScrollerWrapper
             isBtnDisabled={isAnimationDefault("easing")}
             subtitle={animations.easing}
