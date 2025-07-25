@@ -1,4 +1,5 @@
 .button {
+  width: 100%;
   position: relative;
   padding: 14px 10px;
   font-family: satoshi, sans-serif;
