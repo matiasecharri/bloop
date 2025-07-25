@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEvent } from "react";
-import { ResetButton } from "../../atoms";
 import s from "./InputRange.module.css";
+import { MiniButton } from "../../atoms";
 
 interface InputRangeProps {
   label: string;
@@ -27,11 +27,13 @@ const InputRange = ({
 }: InputRangeProps) => {
   return (
     <div className={s.inputWrapper}>
-      <ResetButton
-        ariaLabel={`reset ${value}`}
-        disabled={isBtnDisabled}
-        onClick={onClick}
-      />
+      <div className={s.floating}>
+        <MiniButton
+          ariaLabel={`reset ${value}`}
+          disabled={isBtnDisabled}
+          onClick={onClick}
+        />
+      </div>
       <p>
         <strong>{label}:</strong> {value} {unit}
       </p>
