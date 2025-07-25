@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-dark-accent-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.title {
+  position: relative;
+  margin-bottom: 8px;
+  font-family: satoshi, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--color-light);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
