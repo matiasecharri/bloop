@@ -1,8 +1,12 @@
 "use client";
+
 import { MouseEvent, ReactNode, useState } from "react";
+
 import clsx from "clsx";
+
 import { MiniButton } from "../../atoms";
 import { IconCompress, IconExpand } from "@/assets/svg";
+
 import s from "./Scroller.module.css";
 
 interface ScrollerWrapperProps {
@@ -29,7 +33,7 @@ const ScrollerWrapper = ({
 
   return (
     <section>
-      <p className={s.title}>
+      <div className={s.title}>
         <div className={s.floating}>
           {!!onClick && (
             <MiniButton
@@ -47,7 +51,7 @@ const ScrollerWrapper = ({
           </MiniButton>
         </div>
         <strong>{title}</strong> {subtitle}
-      </p>
+      </div>
       <div className={clsx(s.scroller, !!isExpanded && s.expanded)}>
         {children}
       </div>
