@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+import _SplitText, { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 import { TextSettings } from "../models";
@@ -46,8 +46,9 @@ const Visualizer = () => {
     if (!text.userText.length) return;
 
     //We need to use params to define the animation
-    const createAnimationWithTl = (splittedText: any) => {
-      gsap.set(splittedText.chars, { opacity: 1, y: 0 });
+     
+    const createAnimationWithTl = (splitedText: _SplitText) => {
+      gsap.set(splitedText.chars, { opacity: 1, y: 0 });
 
       const tl = gsap.timeline({
         repeat: animations.repeat,
@@ -55,14 +56,14 @@ const Visualizer = () => {
         repeatDelay: animations.repeatDelay,
       });
 
-      tl.to(splittedText.chars, {
+      tl.to(splitedText.chars, {
         y: `-${text.fontSize * 2}`,
         rotate: 360,
         ease: animations.easing === "original" ? "expo.out" : animations.easing,
         duration: animations.duration,
         stagger: animations.stagger,
       });
-      tl.to(splittedText.chars, {
+      tl.to(splitedText.chars, {
         y: 0,
         ease:
           animations.easing === "original" ? "bounce.out" : animations.easing,
@@ -73,7 +74,7 @@ const Visualizer = () => {
 
       //YOYO VARIATION
       if (animations.yoyo) {
-        tl.to(splittedText.chars, {
+        tl.to(splitedText.chars, {
           y: `-${text.fontSize * 2}`,
           ease:
             animations.easing === "original" ? "expo.out" : animations.easing,
@@ -85,7 +86,7 @@ const Visualizer = () => {
           },
         });
 
-        tl.to(splittedText.chars, {
+        tl.to(splitedText.chars, {
           y: 0,
           ease:
             animations.easing === "original" ? "bounce.out" : animations.easing,
@@ -102,6 +103,7 @@ const Visualizer = () => {
     };
 
     const tl = createAnimationWithTl($splitedText);
+    console.dir($splitedText);
 
     // Cleanup: limpia split y tweens al desmontar o re-ejecutar
     return () => {

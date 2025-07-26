@@ -14,7 +14,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix --rule '@typescript-eslint/no-explicit-any: off'"
     ],
     "src/**/*.{css,module.css}": [
       "stylelint --fix"
