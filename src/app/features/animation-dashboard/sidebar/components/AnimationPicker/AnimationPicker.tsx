@@ -1,9 +1,7 @@
-import {
-  CONTROLS_ACTIONS,
-  defaultControlsSettings,
-  easings,
-  useControls,
-} from "../../../context";
+import { easings } from "../../../constants";
+import { defaultControlsSettings } from "../../../models";
+import { CONTROLS_ACTIONS, useControls } from "../../../context";
+
 import { IconConfig, IconLoop } from "@/assets/svg";
 import { Button, MiniButton, Subtitle, Title } from "@/shared/components/atoms";
 import {
@@ -86,24 +84,70 @@ const AnimationPicker = () => {
             }
           />
           <InputRange
-            isBtnDisabled={isAnimationDefault("delay")}
-            label="Delay"
-            max={3}
-            min={0.0}
-            step={0.1}
+            isBtnDisabled={isAnimationDefault("stagger")}
+            label="Stagger"
+            max={0.5}
+            min={0}
+            step={0.01}
             unit="secs"
-            value={animations.delay}
+            value={animations.stagger}
             onChange={(e) =>
               dispatch({
                 type: CONTROLS_ACTIONS.ANIMATIONS,
-                payload: { delay: Number(e.target.value) },
+                payload: { stagger: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
                 type: CONTROLS_ACTIONS.ANIMATIONS,
                 payload: {
-                  delay: defaultControlsSettings.animations.delay,
+                  stagger: defaultControlsSettings.animations.stagger,
+                },
+              })
+            }
+          />
+          <InputRange
+            isBtnDisabled={isAnimationDefault("initialDelay")}
+            label="Initial Delay"
+            max={10}
+            min={0}
+            step={0.1}
+            unit="secs"
+            value={animations.initialDelay}
+            onChange={(e) =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { initialDelay: Number(e.target.value) },
+              })
+            }
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: {
+                  initialDelay: defaultControlsSettings.animations.initialDelay,
+                },
+              })
+            }
+          />
+          <InputRange
+            isBtnDisabled={isAnimationDefault("repeatDelay")}
+            label="Repeat Delay"
+            max={10}
+            min={0}
+            step={0.1}
+            unit="secs"
+            value={animations.repeatDelay}
+            onChange={(e) =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: { repeatDelay: Number(e.target.value) },
+              })
+            }
+            onClick={() =>
+              dispatch({
+                type: CONTROLS_ACTIONS.ANIMATIONS,
+                payload: {
+                  repeatDelay: defaultControlsSettings.animations.repeatDelay,
                 },
               })
             }
@@ -156,31 +200,6 @@ const AnimationPicker = () => {
               <IconLoop />
             </MiniButton>
           </InputRange>
-
-          {/* <InputRange
-            isBtnDisabled={isAnimationDefault("yoyo")}
-            label="Yoyo"
-            max={1}
-            min={0}
-            step={1}
-            unit={animations.yoyo ? "Enabled" : "Disabled"}
-            value={Number(animations.yoyo)}
-            onChange={(e) =>
-              dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
-                payload: { yoyo: Boolean(e.target.value) },
-              })
-            }
-            onClick={() =>
-              dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
-                payload: {
-                  yoyo: defaultControlsSettings.animations.yoyo,
-                },
-              })
-            }
-          /> */}
-
           <ButtonWrapper
             subtitle={animations.yoyo ? "activated" : "deactivated"}
             title="Yoyo:"
@@ -207,7 +226,6 @@ const AnimationPicker = () => {
               }}
             />
           </ButtonWrapper>
-
           <ScrollerWrapper
             isBtnDisabled={isAnimationDefault("easing")}
             subtitle={animations.easing}
