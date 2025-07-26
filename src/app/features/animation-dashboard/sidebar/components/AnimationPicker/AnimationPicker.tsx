@@ -4,16 +4,16 @@ import {
   easings,
   useControls,
 } from "../../../context";
-import { IconConfig } from "@/assets/svg";
-import { Button, Subtitle, Title } from "@/shared/components/atoms";
+import { IconConfig, IconLoop } from "@/assets/svg";
+import { Button, MiniButton, Subtitle, Title } from "@/shared/components/atoms";
 import {
   ButtonWrapper,
   InputRange,
   PickerStep,
   PickerWrapper,
+  RangeWrapper,
   ScrollerWrapper,
 } from "@/shared/components/molecules";
-import { RangeWrapper } from "@/shared/components/molecules";
 
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
@@ -136,7 +136,26 @@ const AnimationPicker = () => {
                 },
               })
             }
-          />
+          >
+            <MiniButton
+              noAnimation
+              ariaLabel="loop animation"
+              isActive={animations.repeat === -1}
+              onClick={() =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: {
+                    repeat:
+                      animations.repeat === -1
+                        ? (animations.repeat = 1)
+                        : (animations.repeat = -1),
+                  },
+                })
+              }
+            >
+              <IconLoop />
+            </MiniButton>
+          </InputRange>
 
           {/* <InputRange
             isBtnDisabled={isAnimationDefault("yoyo")}
@@ -163,8 +182,8 @@ const AnimationPicker = () => {
           /> */}
 
           <ButtonWrapper
-            title="Yoyo:"
             subtitle={animations.yoyo ? "activated" : "deactivated"}
+            title="Yoyo:"
           >
             <Button
               isActive={animations.yoyo}

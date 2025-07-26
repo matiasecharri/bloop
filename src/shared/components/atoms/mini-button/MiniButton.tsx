@@ -8,6 +8,7 @@ interface ResetButtonProps {
   disabled?: boolean;
   children?: ReactNode;
   noAnimation?: boolean;
+  isActive?: boolean;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -15,6 +16,7 @@ const ResetButton = ({
   ariaLabel,
   disabled,
   noAnimation,
+  isActive,
   children,
   onClick,
 }: ResetButtonProps) => {
@@ -24,6 +26,7 @@ const ResetButton = ({
       className={clsx(
         s.miniBtn,
         !!disabled && s.disabledBtn,
+        !!isActive && s.active,
         !!noAnimation && s.noAnimation
       )}
       disabled={disabled}

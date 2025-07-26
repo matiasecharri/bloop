@@ -17,13 +17,15 @@ const TransitionWrapper = ({ children, state }: TransitionWrapperProps) => {
     gsap.set($transitionElement, {
       opacity: 0,
       y: "50px",
+      filter: "blur(1px)",
     });
 
     gsap.to($transitionElement, {
       opacity: 1,
-      duration: 0.33,
-      ease: "power1",
       y: "0px",
+      filter: "blur(0px)",
+      duration: 0.4,
+      ease: "power1",
     });
   }, [state]);
 

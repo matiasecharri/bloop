@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent, MouseEvent, ReactNode } from "react";
 import s from "./InputRange.module.css";
 import { MiniButton } from "../../atoms";
 
@@ -10,6 +10,7 @@ interface InputRangeProps {
   step?: number;
   unit?: string;
   isBtnDisabled?: boolean;
+  children?: ReactNode;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -22,6 +23,7 @@ const InputRange = ({
   step,
   unit,
   isBtnDisabled,
+  children,
   onChange,
   onClick,
 }: InputRangeProps) => {
@@ -32,7 +34,8 @@ const InputRange = ({
           ariaLabel={`reset ${value}`}
           disabled={isBtnDisabled}
           onClick={onClick}
-        />
+          />
+          {children}
       </div>
       <p>
         <strong>{label}:</strong> {value} {unit}

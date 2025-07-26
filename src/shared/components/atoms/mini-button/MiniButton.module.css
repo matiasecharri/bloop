@@ -1,4 +1,5 @@
 .miniBtn {
+  position: relative;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -11,6 +12,27 @@
   border: 1px solid var(--color-border-light);
   border-radius: 50%;
   transition: opacity 0.4s ease-in-out;
+}
+
+.miniBtn::after {
+  position: absolute;
+  left: 50%;
+  z-index: -10;
+  width: 110%;
+  height: 110%;
+  background: linear-gradient(
+    90deg,
+    rgb(93 255 93) 0 var(--progress, 50%),
+    #000 var(--progress, 50%) 100%
+  );
+  border-radius: 50%;
+  box-shadow: rgb(158 255 93) 0 2px 4px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transform: translateX(-50%);
+  animation: rotate 1s linear infinite paused;
+  content: "";
+  filter: blur(2px);
 }
 
 .miniBtn svg {
@@ -30,10 +52,47 @@
   opacity: 0.5;
 }
 
+.disabledBtn::after {
+  opacity: 0;
+}
+
 .disabledBtn:hover svg {
   transform: initial;
 }
 
 .noAnimation:hover svg {
   transform: rotate(0deg);
+}
+
+.active {
+  position: relative;
+  opacity: 1;
+}
+
+.miniBtn::before {
+  position: absolute;
+  left: 50%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #242424;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  content: "";
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.active::after {
+  opacity: .8;
+  animation: rotate 1.5s linear infinite running;
 }
