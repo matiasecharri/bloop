@@ -1,10 +1,3 @@
-import { IconConfig } from "@/assets/svg";
-import { capitalize } from "@/shared/utilities";
-import {
-  CONTROLS_ACTIONS,
-  defaultControlsSettings,
-  useControls,
-} from "../../../context";
 import { Subtitle, Title } from "@/shared/components/atoms";
 import {
   InputRange,
@@ -12,6 +5,12 @@ import {
   PickerWrapper,
   RangeWrapper,
 } from "@/shared/components/molecules";
+import { IconConfig } from "@/assets/svg";
+import { capitalize } from "@/shared/utilities";
+
+import { defaultControlsSettings } from "../../../models";
+import { CONTROLS_ACTIONS, useControls } from "../../../context";
+
 import s from "./TextPicker.module.css";
 
 const TextPicker = () => {

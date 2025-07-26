@@ -1,8 +1,12 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { TextSettings, useControls } from "../context";
 import { useRef } from "react";
+
+import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+
+import { TextSettings } from "../models";
+import { useControls } from "../context";
+
 import s from "./Visualizer.module.css";
 
 gsap.registerPlugin(SplitText);
@@ -40,33 +44,75 @@ const Visualizer = () => {
 
     // Setea el estado inicial de los caracteres, si el usuario no escribio no hacemos nada
     if (!text.userText.length) return;
-    gsap.set($splitedText.chars, { opacity: 0, y: 20 });
 
-    // Anima los caracteres individualmente
-    gsap.fromTo(
-      $splitedText.chars,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.05,
-        ease: animations.easing,
-        duration: animations.duration,
-        delay: animations.delay,
+    //We need to use params to define the animation
+    const createAnimationWithTl = (splittedText: any) => {
+      gsap.set(splittedText.chars, { opacity: 1, y: 0 });
+
+      const tl = gsap.timeline({
         repeat: animations.repeat,
-        yoyo: animations.yoyo,
+        delay: animations.initialDelay,
+        repeatDelay: animations.repeatDelay,
+      });
+
+      tl.to(splittedText.chars, {
+        y: `-${text.fontSize * 2}`,
+        rotate: 360,
+        ease: animations.easing === "original" ? "expo.out" : animations.easing,
+        duration: animations.duration,
+        stagger: animations.stagger,
+      });
+      tl.to(splittedText.chars, {
+        y: 0,
+        ease:
+          animations.easing === "original" ? "bounce.out" : animations.easing,
+        duration: animations.duration,
+        stagger: animations.stagger,
+        delay: -1,
+      });
+
+      //YOYO VARIATION
+      if (animations.yoyo) {
+        tl.to(splittedText.chars, {
+          y: `-${text.fontSize * 2}`,
+          ease:
+            animations.easing === "original" ? "expo.out" : animations.easing,
+          rotate: -360,
+          duration: animations.duration,
+          stagger: {
+            each: animations.stagger,
+            from: "end",
+          },
+        });
+
+        tl.to(splittedText.chars, {
+          y: 0,
+          ease:
+            animations.easing === "original" ? "bounce.out" : animations.easing,
+          duration: animations.duration,
+          stagger: {
+            each: animations.stagger,
+            from: "end",
+          },
+          delay: -1,
+        });
       }
-    );
+
+      return tl;
+    };
+
+    const tl = createAnimationWithTl($splitedText);
 
     // Cleanup: limpia split y tweens al desmontar o re-ejecutar
     return () => {
       if (splitRef.current) {
+        tl.kill();
         gsap.killTweensOf(splitRef.current.chars);
         splitRef.current.revert();
         splitRef.current = null;
       }
     };
-  }, [animations, text.userText]);
+  }, [animations, text.userText, text.fontSize]);
 
   return (
     <section className={s.visualizer}>

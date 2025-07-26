@@ -1,10 +1,5 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
-import {
-  AnimationSettings,
-  ControlsSettings,
-  defaultControlsSettings,
-  TextSettings,
-} from "./controlsTypes";
+import { AnimationSettings, ControlsSettings, defaultControlsSettings, TextSettings } from "../models";
 import { withLogger } from "@/shared/utilities";
 
 //REDUCER TYPES

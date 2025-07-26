@@ -1,6 +1,8 @@
 import { ChangeEvent, MouseEvent, ReactNode } from "react";
-import s from "./InputRange.module.css";
+
 import { MiniButton } from "../../atoms";
+
+import s from "./InputRange.module.css";
 
 interface InputRangeProps {
   label: string;
@@ -34,8 +36,8 @@ const InputRange = ({
           ariaLabel={`reset ${value}`}
           disabled={isBtnDisabled}
           onClick={onClick}
-          />
-          {children}
+        />
+        {children}
       </div>
       <p>
         <strong>{label}:</strong> {value} {unit}

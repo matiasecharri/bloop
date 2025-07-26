@@ -1,6 +1,8 @@
 import { MouseEvent } from "react";
-import s from "./Button.module.css";
+
 import clsx from "clsx";
+
+import s from "./Button.module.css";
 
 interface ButtonProps {
   text: string;
