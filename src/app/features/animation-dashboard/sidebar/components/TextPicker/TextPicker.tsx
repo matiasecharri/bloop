@@ -47,7 +47,7 @@ const TextPicker = () => {
         <p className={s.fontFamily}>{capitalize(text.fontFamily)}</p>
       </PickerStep>
       <PickerStep>
-        <Subtitle step="03" text="Font properties" />
+        <Subtitle step="03" text="Font settings" />
         <RangeWrapper>
           <InputRange
             isBtnDisabled={isTextDefault("fontSize")}
