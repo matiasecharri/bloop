@@ -6,7 +6,7 @@ const HomeView = () => {
   return (
     <>
         <div className={s.homeContainer}>
-          <Header title="Quick Animations" />
+          <Header title="Bloop." />
           <AnimationDasboard />
         </div>
     </>

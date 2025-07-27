@@ -10,13 +10,13 @@ export const defaultControlsSettings: ControlsSettings = {
     initialDelay: 1,
     repeat: -1,
     stagger: 0.05,
-    yoyo: false,
+    yoyo: true,
   },
   text: {
     fontFamily: "satoshi",
     fontSize: 100,
     fontWeight: 700,
     letterSpacing: -1.6,
-    userText: "Easy + Quick",
+    userText: "Blooooop",
   },
 };

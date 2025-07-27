@@ -23,7 +23,7 @@ const TextPicker = () => {
 
   return (
     <PickerWrapper>
-      <Title text="Text Config">
+      <Title text="Text Settings">
         <IconConfig />
       </Title>
       <PickerStep>
@@ -95,7 +95,7 @@ const TextPicker = () => {
           />
           <InputRange
             isBtnDisabled={isTextDefault("letterSpacing")}
-            label="kerning"
+            label="spacing"
             max={40}
             min={-20}
             step={0.1}

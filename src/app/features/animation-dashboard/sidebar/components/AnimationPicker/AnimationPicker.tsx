@@ -24,7 +24,7 @@ const AnimationPicker = () => {
 
   return (
     <PickerWrapper>
-      <Title text="Animation Config">
+      <Title text="Animation Settings">
         <IconConfig />
       </Title>
       <PickerStep>
