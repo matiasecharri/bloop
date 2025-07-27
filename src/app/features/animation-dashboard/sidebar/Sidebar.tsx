@@ -1,12 +1,9 @@
 "use client";
+
 import { ReactNode, useState } from "react";
+
 import clsx from "clsx";
-import {
-  AnimationPicker,
-  BackgroundPicker,
-  ColorPicker,
-  TextPicker,
-} from "./components";
+
 import {
   IconAnimation,
   IconBackground,
@@ -15,8 +12,17 @@ import {
   IconPresets,
   IconText,
 } from "@/assets/svg";
-import { TransitionWrapper } from "@/shared/components/molecules";
+
 import { capitalize } from "@/shared/utilities";
+import { TransitionWrapper } from "@/shared/components/molecules";
+
+import {
+  AnimationPicker,
+  BackgroundPicker,
+  ColorPicker,
+  TextPicker,
+} from "./components";
+
 import s from "./Sidebar.module.css";
 
 interface TabType {
@@ -63,7 +69,7 @@ const Sidebar = () => {
         {tabs.map(({ tabName, icon }) => (
           <button
             key={tabName}
-            aria-label={tabName}
+            aria-label={`${tabName} settings`}
             className={clsx(s.btn, tabName === selectedTab ? s.btnActive : "")}
             type="button"
             onClick={() => setSelectedTab(tabName)}
