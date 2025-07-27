@@ -16,7 +16,7 @@
   gap: 10px;
 }
 
-.inputWrapper p {
+.labelStyle {
   margin-bottom: 8px;
   font-family: satoshi, sans-serif;
   font-size: 0.9rem;

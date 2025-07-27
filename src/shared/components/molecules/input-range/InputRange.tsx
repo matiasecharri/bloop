@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, ReactNode } from "react";
+import { ChangeEvent, MouseEvent, ReactNode, useId } from "react";
 
 import { MiniButton } from "../../atoms";
 
@@ -29,6 +29,8 @@ const InputRange = ({
   onChange,
   onClick,
 }: InputRangeProps) => {
+  const id = useId();
+
   return (
     <div className={s.inputWrapper}>
       <div className={s.floating}>
@@ -39,13 +41,12 @@ const InputRange = ({
         />
         {children}
       </div>
-      <p>
+      <label className={s.labelStyle} htmlFor={id}>
         <strong>{label}:</strong> {value} {unit}
-      </p>
+      </label>
       <input
-        aria-labelledby={label}
         className={s.inputRange}
-        id={label}
+        id={id}
         max={max}
         min={min}
         step={step ?? 1}
