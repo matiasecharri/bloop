@@ -23,7 +23,7 @@ const TextPicker = () => {
 
   return (
     <PickerWrapper>
-      <Title text="Text Settings">
+      <Title text="Text Config">
         <IconConfig />
       </Title>
       <PickerStep>

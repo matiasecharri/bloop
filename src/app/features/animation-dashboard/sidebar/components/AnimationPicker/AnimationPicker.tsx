@@ -24,7 +24,7 @@ const AnimationPicker = () => {
 
   return (
     <PickerWrapper>
-      <Title text="Animation Settings">
+      <Title text="Animation Config">
         <IconConfig />
       </Title>
       <PickerStep>
@@ -58,7 +58,7 @@ const AnimationPicker = () => {
         </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
-        <Subtitle step="05" text="animation properties" />
+        <Subtitle step="05" text="animation settings" />
         <RangeWrapper>
           <InputRange
             isBtnDisabled={isAnimationDefault("duration")}
