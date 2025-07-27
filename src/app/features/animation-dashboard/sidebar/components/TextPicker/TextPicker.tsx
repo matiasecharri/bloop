@@ -30,6 +30,7 @@ const TextPicker = () => {
         <Subtitle step="01" text="Add your text" />
         <input
           className={s.input}
+          maxLength={50}
           placeholder="Quick animations is really quick"
           type="text"
           value={text.userText}
