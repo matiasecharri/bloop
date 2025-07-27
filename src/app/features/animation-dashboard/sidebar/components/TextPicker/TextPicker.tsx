@@ -31,7 +31,7 @@ const TextPicker = () => {
         <input
           className={s.input}
           maxLength={50}
-          placeholder="Quick animations is really quick"
+          placeholder="Make it dance!"
           type="text"
           value={text.userText}
           onChange={(e) =>

@@ -103,7 +103,6 @@ const Visualizer = () => {
     };
 
     const tl = createAnimationWithTl($splitedText);
-    console.dir($splitedText);
 
     // Cleanup: limpia split y tweens al desmontar o re-ejecutar
     return () => {

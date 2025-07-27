@@ -1,13 +1,12 @@
 .header {
+  position: fixed;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   min-height: var(--nav-height);
   max-height: var(--nav-height);
-  padding: 0 10px;
-  background-color: var(--color-dark-accent);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: 0 25px;
 }
 
 @keyframes gradient-move {
