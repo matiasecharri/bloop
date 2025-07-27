@@ -205,23 +205,22 @@ const AnimationPicker = () => {
             title="Yoyo:"
           >
             <Button
-              isActive={animations.yoyo}
-              text="On"
-              onClick={() => {
-                dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
-                  payload: { yoyo: true },
-                });
-              }}
-            />
-
-            <Button
               isActive={!animations.yoyo}
               text="Off"
               onClick={() => {
                 dispatch({
                   type: CONTROLS_ACTIONS.ANIMATIONS,
                   payload: { yoyo: false },
+                });
+              }}
+            />
+            <Button
+              isActive={animations.yoyo}
+              text="On"
+              onClick={() => {
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: { yoyo: true },
                 });
               }}
             />

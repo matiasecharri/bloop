@@ -1,5 +1,10 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
-import { AnimationSettings, ControlsSettings, defaultControlsSettings, TextSettings } from "../models";
+import {
+  AnimationSettings,
+  ControlsSettings,
+  defaultControlsSettings,
+  TextSettings,
+} from "../models";
 import { withLogger } from "@/shared/utilities";
 
 //REDUCER TYPES
@@ -83,15 +88,3 @@ export const ControlsProvider = ({ children }: ControlsProviderProps) => {
     </ControlsContext.Provider>
   );
 };
-
-// export const useControlsActions = () => {
-//   const { dispatch } = useControls();
-
-//   const setText = (payload: Partial<TextSettings>) =>
-//     dispatch({ type: CONTROLS_ACTIONS.TEXT, payload });
-
-//   const setAnimations = (payload: Partial<AnimationSettings>) =>
-//     dispatch({ type: CONTROLS_ACTIONS.ANIMATIONS, payload });
-
-//   return { setText, setAnimations };
-// };
