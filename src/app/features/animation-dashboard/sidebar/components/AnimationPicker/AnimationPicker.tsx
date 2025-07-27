@@ -43,21 +43,7 @@ const AnimationPicker = () => {
             })
           }
         >
-          {easings.map((gsapEasing) => (
-            <Button
-              key={gsapEasing}
-              isActive={gsapEasing === animations.easing}
-              text={gsapEasing}
-              onClick={() =>
-                dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
-                  payload: {
-                    easing: gsapEasing,
-                  },
-                })
-              }
-            />
-          ))}
+          <div></div>
         </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
@@ -235,34 +221,39 @@ const AnimationPicker = () => {
               }}
             />
           </ButtonWrapper>
-          <ScrollerWrapper
-            isBtnDisabled={isAnimationDefault("easing")}
-            subtitle={animations.easing}
-            title="Easing:"
-            onClick={() =>
-              dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
-                payload: { easing: defaultControlsSettings.animations.easing },
-              })
-            }
-          >
-            {easings.map((gsapEasing) => (
-              <Button
-                key={gsapEasing}
-                isActive={gsapEasing === animations.easing}
-                text={gsapEasing}
-                onClick={() =>
-                  dispatch({
-                    type: CONTROLS_ACTIONS.ANIMATIONS,
-                    payload: {
-                      easing: gsapEasing,
-                    },
-                  })
-                }
-              />
-            ))}
-          </ScrollerWrapper>
         </RangeWrapper>
+      </PickerStep>
+      <PickerStep noMargin>
+        <Subtitle step="06" text="advanced settings" />
+        <ScrollerWrapper
+          isBtnDisabled={isAnimationDefault("easing")}
+          subtitle={animations.easing}
+          title="Easing:"
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.ANIMATIONS,
+              payload: {
+                easing: defaultControlsSettings.animations.easing,
+              },
+            })
+          }
+        >
+          {easings.map((gsapEasing) => (
+            <Button
+              key={gsapEasing}
+              isActive={gsapEasing === animations.easing}
+              text={gsapEasing}
+              onClick={() =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  payload: {
+                    easing: gsapEasing,
+                  },
+                })
+              }
+            />
+          ))}
+        </ScrollerWrapper>
       </PickerStep>
     </PickerWrapper>
   );

@@ -1,7 +1,11 @@
 .step {
   display: flex;
   flex-direction: column;
+  gap: 12px;
   width: 100%;
   margin-bottom: 28px;
-  gap: 12px;
+}
+
+.noMargin {
+  margin-bottom: 0;
 }
