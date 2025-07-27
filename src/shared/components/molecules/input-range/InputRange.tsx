@@ -3,6 +3,8 @@ import { ChangeEvent, MouseEvent, ReactNode, useId } from "react";
 import { MiniButton } from "../../atoms";
 
 import s from "./InputRange.module.css";
+import { IconInfo } from "@/assets/svg";
+import Tooltip from "../tooltip/Tooltip";
 
 interface InputRangeProps {
   label: string;
@@ -13,6 +15,8 @@ interface InputRangeProps {
   unit?: string;
   isBtnDisabled?: boolean;
   children?: ReactNode;
+  tooltipInfo?: string;
+  withTooltip?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -25,6 +29,8 @@ const InputRange = ({
   step,
   unit,
   isBtnDisabled,
+  tooltipInfo,
+  withTooltip,
   children,
   onChange,
   onClick,
@@ -34,12 +40,23 @@ const InputRange = ({
   return (
     <div className={s.inputWrapper}>
       <div className={s.floating}>
+        {children}
         <MiniButton
           ariaLabel={`reset ${value}`}
           disabled={isBtnDisabled}
           onClick={onClick}
         />
-        {children}
+         {withTooltip && tooltipInfo && (
+          <Tooltip text={tooltipInfo}>
+            <MiniButton
+              noAnimation
+              ariaLabel={`${value} information`}
+              size="s"
+            >
+              <IconInfo />
+            </MiniButton>
+          </Tooltip>
+        )}
       </div>
       <label className={s.labelStyle} htmlFor={id}>
         <strong>{label}:</strong> {value} {unit}

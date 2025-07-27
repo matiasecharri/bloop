@@ -26,7 +26,6 @@
   letter-spacing: 0.8px;
   color: var(--color-light);
   text-transform: uppercase;
-  opacity: 0.8;
 }
 
 .floating {
@@ -36,4 +35,8 @@
   z-index: 10;
   display: flex;
   gap: 10px;
+}
+
+.info {
+  opacity: 0.8;
 }

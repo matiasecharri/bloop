@@ -1,0 +1,35 @@
+.tooltip {
+  position: relative;
+}
+
+.info {
+  position: absolute;
+  top: -85px;
+  right: 5px;
+  z-index: 20;
+  min-width: 210px;
+  max-width: 210px;
+  min-height: 60px;
+  padding: 12px;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.2s;
+  transform: scale(0);
+  pointer-events: none;
+  user-select: none;
+}
+
+.tooltip:hover .info {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.info p {
+  font-family: satoshi, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: var(--color-light);
+  opacity: 0.9;
+}

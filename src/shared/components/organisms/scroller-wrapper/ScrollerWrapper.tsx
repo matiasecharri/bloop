@@ -45,12 +45,13 @@ const ScrollerWrapper = ({
           <MiniButton
             noAnimation
             ariaLabel={ariaLabelMessage}
+            size="m"
             onClick={toggleExpanded}
           >
             {isExpanded ? <IconCompress /> : <IconExpand />}
           </MiniButton>
         </div>
-        <strong>{title}</strong> {subtitle}
+        <span className={s.info}><strong>{title}</strong> {subtitle}</span>
       </div>
       <div className={clsx(s.scroller, !!isExpanded && s.expanded)}>
         {children}

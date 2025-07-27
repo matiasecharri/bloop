@@ -6,13 +6,16 @@ import { IconReset } from "@/assets/svg";
 
 import s from "./MiniButton.module.css";
 
+type SizeType = "s" | "m" | "l";
+
 interface ResetButtonProps {
   ariaLabel: string;
   disabled?: boolean;
   children?: ReactNode;
   noAnimation?: boolean;
   isActive?: boolean;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  size?: SizeType;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const ResetButton = ({
@@ -21,6 +24,7 @@ const ResetButton = ({
   noAnimation,
   isActive,
   children,
+  size,
   onClick,
 }: ResetButtonProps) => {
   return (
@@ -30,7 +34,10 @@ const ResetButton = ({
         s.miniBtn,
         !!disabled && s.disabledBtn,
         !!isActive && s.active,
-        !!noAnimation && s.noAnimation
+        !!noAnimation && s.noAnimation,
+        !onClick && s.noClickable,
+        size === "s" ? s.small : s.long,
+        size === "m" ? s.medium : s.long
       )}
       disabled={disabled}
       onClick={onClick}

@@ -1,12 +1,9 @@
-import { Subtitle, Title } from "@/shared/components/atoms";
-import {
-  InputRange,
-  PickerStep,
-  PickerWrapper,
-  RangeWrapper,
-} from "@/shared/components/molecules";
 import { IconConfig } from "@/assets/svg";
 import { capitalize } from "@/shared/utilities";
+
+import { Subtitle, Title } from "@/shared/components/atoms";
+import { InputRange, PickerStep } from "@/shared/components/molecules";
+import { PickerWrapper, RangeWrapper } from "@/shared/components/organisms";
 
 import { defaultControlsSettings } from "../../../models";
 import { CONTROLS_ACTIONS, useControls } from "../../../context";

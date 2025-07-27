@@ -14,7 +14,6 @@ import {
 } from "@/assets/svg";
 
 import { capitalize } from "@/shared/utilities";
-import { TransitionWrapper } from "@/shared/components/molecules";
 
 import {
   AnimationPicker,
@@ -24,6 +23,7 @@ import {
 } from "./components";
 
 import s from "./Sidebar.module.css";
+import { TransitionWrapper } from "@/shared/components/organisms";
 
 interface TabType {
   tabName: string;

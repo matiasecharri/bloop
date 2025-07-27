@@ -1,17 +1,20 @@
-import { easings } from "../../../constants";
-import { defaultControlsSettings } from "../../../models";
-import { CONTROLS_ACTIONS, useControls } from "../../../context";
-
 import { IconConfig, IconLoop } from "@/assets/svg";
+
 import { Button, MiniButton, Subtitle, Title } from "@/shared/components/atoms";
 import {
   ButtonWrapper,
   InputRange,
   PickerStep,
+} from "@/shared/components/molecules";
+import {
   PickerWrapper,
   RangeWrapper,
   ScrollerWrapper,
-} from "@/shared/components/molecules";
+} from "@/shared/components/organisms";
+
+import { easings } from "../../../constants";
+import { defaultControlsSettings } from "../../../models";
+import { CONTROLS_ACTIONS, useControls } from "../../../context";
 
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
@@ -61,11 +64,13 @@ const AnimationPicker = () => {
         <Subtitle step="05" text="animation settings" />
         <RangeWrapper>
           <InputRange
+            withTooltip
             isBtnDisabled={isAnimationDefault("duration")}
             label="Duration"
             max={3}
             min={0.1}
             step={0.1}
+            tooltipInfo="Total time each animation takes to complete. Affects how long elements animate individually."
             unit="secs"
             value={animations.duration}
             onChange={(e) =>
@@ -84,11 +89,13 @@ const AnimationPicker = () => {
             }
           />
           <InputRange
+            withTooltip
             isBtnDisabled={isAnimationDefault("stagger")}
             label="Stagger"
             max={0.5}
             min={0}
             step={0.01}
+            tooltipInfo="Delay between each element animation start. Combine it with duration for sequencing effects."
             unit="secs"
             value={animations.stagger}
             onChange={(e) =>
@@ -107,11 +114,13 @@ const AnimationPicker = () => {
             }
           />
           <InputRange
+            withTooltip
             isBtnDisabled={isAnimationDefault("initialDelay")}
             label="Initial Delay"
             max={10}
             min={0}
             step={0.1}
+            tooltipInfo="Delay before the animation starts. Useful for timed entrance effects."
             unit="secs"
             value={animations.initialDelay}
             onChange={(e) =>
@@ -130,11 +139,13 @@ const AnimationPicker = () => {
             }
           />
           <InputRange
+            withTooltip
             isBtnDisabled={isAnimationDefault("repeatDelay")}
             label="Repeat Delay"
             max={10}
             min={0}
             step={0.1}
+            tooltipInfo="Time to wait before repeating the animation. Only applies when repeat is greater than 0."
             unit="secs"
             value={animations.repeatDelay}
             onChange={(e) =>
@@ -153,11 +164,13 @@ const AnimationPicker = () => {
             }
           />
           <InputRange
+            withTooltip
             isBtnDisabled={isAnimationDefault("repeat")}
             label="Repeat"
             max={10}
             min={-1}
             step={1}
+            tooltipInfo="How many times the animation should repeat. -1 means infinite looping."
             unit={
               animations.repeat === -1
                 ? "Loop"
@@ -189,10 +202,7 @@ const AnimationPicker = () => {
                 dispatch({
                   type: CONTROLS_ACTIONS.ANIMATIONS,
                   payload: {
-                    repeat:
-                      animations.repeat === -1
-                        ? (animations.repeat = 1)
-                        : (animations.repeat = -1),
+                    repeat: animations.repeat === -1 ? 1 : -1,
                   },
                 })
               }
