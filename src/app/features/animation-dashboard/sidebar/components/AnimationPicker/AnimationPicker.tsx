@@ -223,7 +223,7 @@ const AnimationPicker = () => {
           </ButtonWrapper>
         </RangeWrapper>
       </PickerStep>
-      <PickerStep noMargin>
+      <PickerStep>
         <Subtitle step="06" text="advanced settings" />
         <ScrollerWrapper
           isBtnDisabled={isAnimationDefault("easing")}
