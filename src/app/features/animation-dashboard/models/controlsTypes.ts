@@ -1,4 +1,4 @@
-//Animations
+//Animation Interface
 
 import { Easing } from "../constants";
 
@@ -12,7 +12,7 @@ export interface AnimationSettings {
   yoyo: boolean;
 }
 
-// Text
+// Text Interface
 
 export interface TextSettings {
   fontFamily: string;
@@ -33,7 +33,6 @@ export interface ControlsSettings {
  * TO-DO: Feature - Implement animations
  *
  * TO-DO: UX - Add an arrow to Scroller component
- * TO-DO: UX - Add a tool-tip in every animation field
  * TO-DO: UX - Easing btns can have a line with the easing
  * TO-DO: UX - Include an automatic adjustment depending on user input text, "improved duration adjustment"
  * TO-DO: UX - Allow to compress the UI *

@@ -1,13 +1,14 @@
 import { useRef } from "react";
 
 import gsap from "gsap";
-import _SplitText, { SplitText } from "gsap/SplitText";
+import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 import { TextSettings } from "../models";
 import { useControls } from "../context";
 
 import s from "./Visualizer.module.css";
+import animationsMap from "../animations";
 
 gsap.registerPlugin(SplitText);
 
@@ -45,64 +46,7 @@ const Visualizer = () => {
     // Setea el estado inicial de los caracteres, si el usuario no escribio no hacemos nada
     if (!text.userText.length) return;
 
-    //We need to use params to define the animation
-     
-    const createAnimationWithTl = (splitedText: _SplitText) => {
-      gsap.set(splitedText.chars, { opacity: 1, y: 0 });
-
-      const tl = gsap.timeline({
-        repeat: animations.repeat,
-        delay: animations.initialDelay,
-        repeatDelay: animations.repeatDelay,
-      });
-
-      tl.to(splitedText.chars, {
-        y: `-${text.fontSize * 2}`,
-        rotate: 360,
-        ease: animations.easing === "original" ? "expo.out" : animations.easing,
-        duration: animations.duration,
-        stagger: animations.stagger,
-      });
-      tl.to(splitedText.chars, {
-        y: 0,
-        ease:
-          animations.easing === "original" ? "bounce.out" : animations.easing,
-        duration: animations.duration,
-        stagger: animations.stagger,
-        delay: -1,
-      });
-
-      //YOYO VARIATION
-      if (animations.yoyo) {
-        tl.to(splitedText.chars, {
-          y: `-${text.fontSize * 2}`,
-          ease:
-            animations.easing === "original" ? "expo.out" : animations.easing,
-          rotate: -360,
-          duration: animations.duration,
-          stagger: {
-            each: animations.stagger,
-            from: "end",
-          },
-        });
-
-        tl.to(splitedText.chars, {
-          y: 0,
-          ease:
-            animations.easing === "original" ? "bounce.out" : animations.easing,
-          duration: animations.duration,
-          stagger: {
-            each: animations.stagger,
-            from: "end",
-          },
-          delay: -1,
-        });
-      }
-
-      return tl;
-    };
-
-    const tl = createAnimationWithTl($splitedText);
+    const tl = animationsMap.blooping.fn(animations, text, $splitedText);
 
     // Cleanup: limpia split y tweens al desmontar o re-ejecutar
     return () => {
