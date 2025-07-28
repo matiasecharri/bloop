@@ -34,8 +34,8 @@ const AnimationPicker = () => {
         <Subtitle step="04" text="pick your animation" />
         <ScrollerWrapper
           isBtnDisabled={isAnimationDefault("easing")}
-          subtitle={animations.easing}
-          title="Easing:"
+          subtitle={"Blooping"}
+          title="Selected:"
           onClick={() =>
             dispatch({
               type: CONTROLS_ACTIONS.ANIMATIONS,
