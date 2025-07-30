@@ -15,11 +15,12 @@ import {
   useControls,
 } from "@/app/features/animation-dashboard/context";
 
-import s from "./TextPicker.module.css";
 import {
   FontType,
   availableFonts,
 } from "@/app/features/animation-dashboard/constants";
+
+import s from "./TextPicker.module.css";
 
 const TextPicker = () => {
   const { state, dispatch } = useControls();
