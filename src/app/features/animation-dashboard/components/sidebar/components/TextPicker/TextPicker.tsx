@@ -53,9 +53,7 @@ const TextPicker = () => {
       <PickerStep>
         <Subtitle step="02" text="Font family" />
         <ScrollerWrapper
-          isBtnDisabled={
-            text.fontFamily === defaultControlsSettings.text.fontFamily
-          }
+          isBtnDisabled={isTextDefault("fontFamily")}
           title={`Selected: ${text.fontFamily}`}
           onClick={() =>
             dispatch({
