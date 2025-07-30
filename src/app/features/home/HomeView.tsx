@@ -1,14 +1,15 @@
 import { Header } from "@/shared/components/organisms";
-import AnimationDasboard from "../animation-dashboard/AnimationDashboard";
+import { AnimationDashboard } from "../animation-dashboard";
+
 import s from "./HomeView.module.css";
 
 const HomeView = () => {
   return (
     <>
-        <div className={s.homeContainer}>
-          <Header title="Bloop" />
-          <AnimationDasboard />
-        </div>
+      <div className={s.homeContainer}>
+        <Header title="Bloop" />
+        <AnimationDashboard />
+      </div>
     </>
   );
 };
