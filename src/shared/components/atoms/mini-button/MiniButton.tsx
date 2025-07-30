@@ -1,8 +1,8 @@
 import { MouseEvent, ReactNode } from "react";
 
-import clsx from "clsx";
-
 import { IconReset } from "@/assets/svg";
+
+import clsx from "clsx";
 
 import s from "./MiniButton.module.css";
 

@@ -27,6 +27,9 @@ const AnimationPicker = () => {
 
   const { animations } = state;
 
+  const friendlyAnimationName =
+    animationsMap[animations.selectedAnimation].label;
+
   const isAnimationDefault = <K extends keyof typeof animations>(
     key: K
   ): boolean => animations[key] === defaultControlsSettings.animations[key];
@@ -41,7 +44,7 @@ const AnimationPicker = () => {
         <ScrollerWrapper
           isDefaultExpanded
           isBtnDisabled={isAnimationDefault("selectedAnimation")}
-          subtitle={animations.selectedAnimation}
+          subtitle={friendlyAnimationName}
           title="Selected:"
           onClick={() =>
             dispatch({
