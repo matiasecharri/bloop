@@ -7,7 +7,7 @@ export const defaultControlsSettings: ControlsSettings = {
     repeatDelay: 2,
     duration: 1,
     easing: "original",
-    initialDelay: 1,
+    initialDelay: 0,
     repeat: -1,
     stagger: 0.05,
     yoyo: true,
