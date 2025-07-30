@@ -4,8 +4,12 @@ import { AnimationSettings, TextSettings } from "../models";
 
 import bloopingAnimation from "./blooping";
 import horizontalFade from "./horizontalFade";
+import verticalFade from "./verticalFade";
+import flicker from "./flickr";
+import popIn from "./popIn";
+import rotateInOut from "./rotateInOut";
 
-type AnimationFn = (
+export type AnimationFn = (
   animations: AnimationSettings,
   text: Pick<TextSettings, "fontSize">,
   splitedText: _SplitText
@@ -19,14 +23,34 @@ type AnimationType = {
 
 const animationsMap: Record<string, AnimationType> = {
   blooping: {
-    label: "blooping",
+    label: "Blooping",
     fn: bloopingAnimation,
     category: "motion",
   },
-  fadeIn: {
-    label: "horizontal fade",
+  horizontalFade: {
+    label: "Slide & Vanish",
     fn: horizontalFade,
     category: "opacity",
+  },
+  verticalFade: {
+    label: "Rise & Fade",
+    fn: verticalFade,
+    category: "opacity",
+  },
+  flicker: {
+    label: "Flicker Pulse",
+    fn: flicker,
+    category: "opacity",
+  },
+  popIn: {
+    label: "Popcorn",
+    fn: popIn,
+    category: "scale",
+  },
+  rotateInOut: {
+    label: "Spin & Out",
+    fn: rotateInOut,
+    category: "rotation",
   },
 };
 

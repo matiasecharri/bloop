@@ -14,6 +14,7 @@ interface ScrollerWrapperProps {
   subtitle?: string;
   children: ReactNode;
   isBtnDisabled?: boolean;
+  isDefaultExpanded?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -22,9 +23,10 @@ const ScrollerWrapper = ({
   title,
   subtitle,
   isBtnDisabled,
+  isDefaultExpanded,
   onClick,
 }: ScrollerWrapperProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(isDefaultExpanded || false);
   const toggleExpanded = () => setIsExpanded((prevState) => !prevState);
 
   const ariaLabelMessage = isExpanded
@@ -51,7 +53,9 @@ const ScrollerWrapper = ({
             {isExpanded ? <IconCompress /> : <IconExpand />}
           </MiniButton>
         </div>
-        <span className={s.info}><strong>{title}</strong> {subtitle}</span>
+        <span className={s.info}>
+          <strong>{title}</strong> {subtitle}
+        </span>
       </div>
       <div className={clsx(s.scroller, !!isExpanded && s.expanded)}>
         {children}

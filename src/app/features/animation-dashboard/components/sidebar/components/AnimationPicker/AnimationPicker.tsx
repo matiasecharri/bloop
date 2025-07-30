@@ -1,6 +1,9 @@
 import animationsMap from "@/app/features/animation-dashboard/animations";
 import { easings } from "@/app/features/animation-dashboard/constants";
-import { CONTROLS_ACTIONS, useControls } from "@/app/features/animation-dashboard/context";
+import {
+  CONTROLS_ACTIONS,
+  useControls,
+} from "@/app/features/animation-dashboard/context";
 import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
 import { IconConfig, IconLoop } from "@/assets/svg";
 
@@ -15,7 +18,7 @@ import {
   RangeWrapper,
   ScrollerWrapper,
 } from "@/shared/components/organisms";
-
+import AnimationPreview from "../../../animation-preview/AnimationPreview";
 
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
@@ -34,6 +37,7 @@ const AnimationPicker = () => {
       <PickerStep>
         <Subtitle step="04" text="pick your animation" />
         <ScrollerWrapper
+          isDefaultExpanded
           isBtnDisabled={isAnimationDefault("selectedAnimation")}
           subtitle={animations.selectedAnimation}
           title="Selected:"
@@ -49,10 +53,11 @@ const AnimationPicker = () => {
         >
           {Object.entries(animationsMap).map(([key, animation]) => {
             return (
-              <Button
+              <AnimationPreview
                 key={key}
+                animationFn={animation.fn}
+                animationName={animation.label}
                 isActive={key === animations.selectedAnimation}
-                text={animation.label}
                 onClick={() =>
                   dispatch({
                     type: CONTROLS_ACTIONS.ANIMATIONS,
