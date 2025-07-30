@@ -45,4 +45,4 @@ export const easings = [
   "none",
 ] as const;
 
-export type Easing = (typeof easings)[number];
+export type EasingType = (typeof easings)[number];

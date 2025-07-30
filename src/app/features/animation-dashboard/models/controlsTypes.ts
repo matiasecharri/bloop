@@ -1,11 +1,11 @@
 //Animation Interface
 
-import { Easing } from "../constants";
+import { EasingType } from "../constants";
 
 export interface AnimationSettings {
   repeatDelay: number;
   duration: number;
-  easing: Easing;
+  easing: EasingType;
   initialDelay: number;
   repeat: number;
   stagger: number;

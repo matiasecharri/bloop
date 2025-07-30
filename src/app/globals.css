@@ -106,3 +106,94 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Fonts */
+@font-face {
+  font-family: Satoshi;
+  src: url("/fonts/Satoshi.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/fonts/Bebas_Neue.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Comfortaa;
+  src: url("/fonts/Comfortaa.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Crimson Text";
+  src: url("/fonts/Crimson_Text.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/Inter.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Jost;
+  src: url("/fonts/Jost.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url("/fonts/Libre_Baskerville.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lilita One";
+  src: url("/fonts/Lilita_One.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url("/fonts/Merriweather.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/fonts/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/Open_Sans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Oxygen;
+  src: url("/fonts/Oxygen.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Pacifico;
+  src: url("/fonts/Pacifico.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/Playfair_Display.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/fonts/Poppins.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/Roboto_Mono.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/Space_Grotesk.ttf") format("truetype");
+}

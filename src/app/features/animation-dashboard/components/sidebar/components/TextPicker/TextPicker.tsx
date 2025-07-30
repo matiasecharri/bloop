@@ -1,14 +1,25 @@
 import { IconConfig } from "@/assets/svg";
 import { capitalize } from "@/shared/utilities";
 
-import { Subtitle, Title } from "@/shared/components/atoms";
+import { Button, Subtitle, Title } from "@/shared/components/atoms";
 import { InputRange, PickerStep } from "@/shared/components/molecules";
-import { PickerWrapper, RangeWrapper } from "@/shared/components/organisms";
+import {
+  PickerWrapper,
+  RangeWrapper,
+  ScrollerWrapper,
+} from "@/shared/components/organisms";
 
 import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
-import { CONTROLS_ACTIONS, useControls } from "@/app/features/animation-dashboard/context";
+import {
+  CONTROLS_ACTIONS,
+  useControls,
+} from "@/app/features/animation-dashboard/context";
 
 import s from "./TextPicker.module.css";
+import {
+  FontType,
+  availableFonts,
+} from "@/app/features/animation-dashboard/constants";
 
 const TextPicker = () => {
   const { state, dispatch } = useControls();
@@ -41,7 +52,33 @@ const TextPicker = () => {
       </PickerStep>
       <PickerStep>
         <Subtitle step="02" text="Font family" />
-        <p className={s.fontFamily}>{capitalize(text.fontFamily)}</p>
+        <ScrollerWrapper
+          isBtnDisabled={
+            text.fontFamily === defaultControlsSettings.text.fontFamily
+          }
+          title={`Selected: ${text.fontFamily}`}
+          onClick={() =>
+            dispatch({
+              type: CONTROLS_ACTIONS.TEXT,
+              payload: { fontFamily: "satoshi" },
+            })
+          }
+        >
+          {availableFonts.map((font: FontType) => (
+            <Button
+              key={font.name}
+              customFont={font.name}
+              isActive={font.name === text.fontFamily}
+              text={capitalize(font.name)}
+              onClick={() =>
+                dispatch({
+                  type: CONTROLS_ACTIONS.TEXT,
+                  payload: { fontFamily: font.name },
+                })
+              }
+            />
+          ))}
+        </ScrollerWrapper>
       </PickerStep>
       <PickerStep>
         <Subtitle step="03" text="Font settings" />
