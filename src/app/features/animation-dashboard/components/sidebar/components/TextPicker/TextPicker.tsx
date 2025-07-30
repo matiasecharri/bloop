@@ -1,7 +1,7 @@
 import { IconConfig } from "@/assets/svg";
 import { capitalize } from "@/shared/utilities";
 
-import { Button, Subtitle, Title } from "@/shared/components/atoms";
+import { Button, InputText, Subtitle, Title } from "@/shared/components/atoms";
 import { InputRange, PickerStep } from "@/shared/components/molecules";
 import {
   PickerWrapper,
@@ -20,8 +20,6 @@ import {
   availableFonts,
 } from "@/app/features/animation-dashboard/constants";
 
-import s from "./TextPicker.module.css";
-
 const TextPicker = () => {
   const { state, dispatch } = useControls();
 
@@ -37,11 +35,9 @@ const TextPicker = () => {
       </Title>
       <PickerStep>
         <Subtitle step="01" text="Add your text" />
-        <input
-          className={s.input}
+        <InputText
           maxLength={50}
           placeholder="Make it dance!"
-          type="text"
           value={text.userText}
           onChange={(e) =>
             dispatch({
