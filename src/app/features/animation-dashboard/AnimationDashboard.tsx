@@ -1,8 +1,8 @@
 "use client";
 
 import { ControlsProvider } from "./context";
-import { Sidebar } from "./sidebar";
-import { Visualizer } from "./visualizer";
+
+import { Sidebar, Visualizer } from "./components";
 
 import s from "./AnimationDashboard.module.css";
 

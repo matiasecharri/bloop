@@ -11,8 +11,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 12px;
   gap: 8px;
+  padding: 12px;
 }
 
 .label {
@@ -56,8 +56,8 @@
 
 .backgroundOptions {
   display: grid;
-  margin-top: 8px;
   gap: 8px;
+  margin-top: 8px;
   grid-template-columns: repeat(3, 1fr);
 }
 

@@ -1,3 +1,7 @@
+import animationsMap from "@/app/features/animation-dashboard/animations";
+import { easings } from "@/app/features/animation-dashboard/constants";
+import { CONTROLS_ACTIONS, useControls } from "@/app/features/animation-dashboard/context";
+import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
 import { IconConfig, IconLoop } from "@/assets/svg";
 
 import { Button, MiniButton, Subtitle, Title } from "@/shared/components/atoms";
@@ -12,9 +16,6 @@ import {
   ScrollerWrapper,
 } from "@/shared/components/organisms";
 
-import { easings } from "../../../constants";
-import { defaultControlsSettings } from "../../../models";
-import { CONTROLS_ACTIONS, useControls } from "../../../context";
 
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
@@ -33,17 +34,36 @@ const AnimationPicker = () => {
       <PickerStep>
         <Subtitle step="04" text="pick your animation" />
         <ScrollerWrapper
-          isBtnDisabled={isAnimationDefault("easing")}
-          subtitle={"Blooping"}
+          isBtnDisabled={isAnimationDefault("selectedAnimation")}
+          subtitle={animations.selectedAnimation}
           title="Selected:"
           onClick={() =>
             dispatch({
               type: CONTROLS_ACTIONS.ANIMATIONS,
-              payload: { easing: defaultControlsSettings.animations.easing },
+              payload: {
+                selectedAnimation:
+                  defaultControlsSettings.animations.selectedAnimation,
+              },
             })
           }
         >
-          <div></div>
+          {Object.entries(animationsMap).map(([key, animation]) => {
+            return (
+              <Button
+                key={key}
+                isActive={key === animations.selectedAnimation}
+                text={animation.label}
+                onClick={() =>
+                  dispatch({
+                    type: CONTROLS_ACTIONS.ANIMATIONS,
+                    payload: {
+                      selectedAnimation: key,
+                    },
+                  })
+                }
+              />
+            );
+          })}
         </ScrollerWrapper>
       </PickerStep>
       <PickerStep>

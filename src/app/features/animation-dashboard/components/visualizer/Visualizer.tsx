@@ -4,11 +4,11 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
-import { TextSettings } from "../models";
-import { useControls } from "../context";
+import { useControls } from "../../context";
+import { TextSettings } from "../../models";
+import animationsMap from "../../animations";
 
 import s from "./Visualizer.module.css";
-import animationsMap from "../animations";
 
 gsap.registerPlugin(SplitText);
 
@@ -27,6 +27,8 @@ const Visualizer = () => {
   };
 
   useGSAP(() => {
+    if (!text.userText.length) return;
+
     const $animatedText = textRef.current;
     if (!$animatedText) return;
 
@@ -43,10 +45,11 @@ const Visualizer = () => {
     // Limpiamos animaciones previas de los caracteres actuales
     gsap.killTweensOf($splitedText.chars);
 
-    // Setea el estado inicial de los caracteres, si el usuario no escribio no hacemos nada
-    if (!text.userText.length) return;
-
-    const tl = animationsMap.blooping.fn(animations, text, $splitedText);
+    const tl = animationsMap[animations.selectedAnimation].fn(
+      animations,
+      text,
+      $splitedText
+    );
 
     // Cleanup: limpia split y tweens al desmontar o re-ejecutar
     return () => {

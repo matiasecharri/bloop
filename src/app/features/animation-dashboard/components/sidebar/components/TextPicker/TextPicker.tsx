@@ -5,8 +5,8 @@ import { Subtitle, Title } from "@/shared/components/atoms";
 import { InputRange, PickerStep } from "@/shared/components/molecules";
 import { PickerWrapper, RangeWrapper } from "@/shared/components/organisms";
 
-import { defaultControlsSettings } from "../../../models";
-import { CONTROLS_ACTIONS, useControls } from "../../../context";
+import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
+import { CONTROLS_ACTIONS, useControls } from "@/app/features/animation-dashboard/context";
 
 import s from "./TextPicker.module.css";
 

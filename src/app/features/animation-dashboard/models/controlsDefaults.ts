@@ -11,6 +11,7 @@ export const defaultControlsSettings: ControlsSettings = {
     repeat: -1,
     stagger: 0.05,
     yoyo: true,
+    selectedAnimation: "blooping",
   },
   text: {
     fontFamily: "satoshi",

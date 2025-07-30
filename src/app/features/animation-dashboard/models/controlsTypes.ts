@@ -10,6 +10,7 @@ export interface AnimationSettings {
   repeat: number;
   stagger: number;
   yoyo: boolean;
+  selectedAnimation: string;
 }
 
 // Text Interface
