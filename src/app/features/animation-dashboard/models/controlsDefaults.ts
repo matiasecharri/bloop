@@ -4,10 +4,10 @@ import { ControlsSettings } from "./controlsTypes";
 
 export const defaultControlsSettings: ControlsSettings = {
   animations: {
-    repeatDelay: 2,
+    repeatDelay: 0.2,
     duration: 1,
     easing: "original",
-    initialDelay: 0,
+    initialDelay: 1,
     repeat: -1,
     stagger: 0.05,
     yoyo: true,
