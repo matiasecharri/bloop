@@ -33,6 +33,7 @@ const verticalFade = (
 
   if (animations.yoyo) {
     tl.to(splitedText.chars, {
+      delay: 0.8,
       y: 0,
       opacity: 1,
       ease: animations.easing === "original" ? "expo.out" : animations.easing,
