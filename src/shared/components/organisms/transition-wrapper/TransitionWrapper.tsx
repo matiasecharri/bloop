@@ -3,6 +3,7 @@ import { ReactNode, useRef } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useHasMounted } from "@/shared/hooks";
 
 interface TransitionWrapperProps {
   state: string;
@@ -12,7 +13,11 @@ interface TransitionWrapperProps {
 const TransitionWrapper = ({ children, state }: TransitionWrapperProps) => {
   const transitionRef = useRef<HTMLDivElement>(null);
 
+  const mounted = useHasMounted();
+
   useGSAP(() => {
+    if (!mounted) return;
+
     const $transitionElement = transitionRef.current;
 
     gsap.set($transitionElement, {
