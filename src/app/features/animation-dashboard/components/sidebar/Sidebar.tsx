@@ -22,8 +22,8 @@ import {
   TextPicker,
 } from "./components";
 
-import s from "./Sidebar.module.css";
 import { TransitionWrapper } from "@/shared/components/organisms";
+import s from "./Sidebar.module.css";
 
 interface TabType {
   tabName: string;

@@ -20,6 +20,8 @@ import {
   availableFonts,
 } from "@/app/features/animation-dashboard/constants";
 
+const { TEXT: TEXT_ACTION } = CONTROLS_ACTIONS;
+
 const TextPicker = () => {
   const { state, dispatch } = useControls();
 
@@ -41,7 +43,7 @@ const TextPicker = () => {
           value={text.userText}
           onChange={(e) =>
             dispatch({
-              type: CONTROLS_ACTIONS.TEXT,
+              type: TEXT_ACTION,
               payload: { userText: e.target.value },
             })
           }
@@ -54,7 +56,7 @@ const TextPicker = () => {
           title={`Selected: ${text.fontFamily}`}
           onClick={() =>
             dispatch({
-              type: CONTROLS_ACTIONS.TEXT,
+              type: TEXT_ACTION,
               payload: { fontFamily: "satoshi" },
             })
           }
@@ -67,7 +69,7 @@ const TextPicker = () => {
               text={capitalize(font.name)}
               onClick={() =>
                 dispatch({
-                  type: CONTROLS_ACTIONS.TEXT,
+                  type: TEXT_ACTION,
                   payload: { fontFamily: font.name },
                 })
               }
@@ -89,13 +91,13 @@ const TextPicker = () => {
             value={text.fontSize}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: { fontSize: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: { fontSize: defaultControlsSettings.text.fontSize },
               })
             }
@@ -110,13 +112,13 @@ const TextPicker = () => {
             value={text.fontWeight}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: { fontWeight: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: {
                   fontWeight: defaultControlsSettings.text.fontWeight,
                 },
@@ -135,13 +137,13 @@ const TextPicker = () => {
             value={text.letterSpacing}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: { letterSpacing: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.TEXT,
+                type: TEXT_ACTION,
                 payload: {
                   letterSpacing: defaultControlsSettings.text.letterSpacing,
                 },

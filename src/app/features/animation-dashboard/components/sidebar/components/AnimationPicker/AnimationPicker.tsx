@@ -20,6 +20,8 @@ import {
 } from "@/shared/components/organisms";
 import AnimationPreview from "../../../animation-preview/AnimationPreview";
 
+const { ANIMATIONS: ANIMATIONS_ACTION } = CONTROLS_ACTIONS;
+
 const AnimationPicker = () => {
   const { state, dispatch } = useControls();
 
@@ -43,7 +45,7 @@ const AnimationPicker = () => {
           title="Selected:"
           onClick={() =>
             dispatch({
-              type: CONTROLS_ACTIONS.ANIMATIONS,
+              type: ANIMATIONS_ACTION,
               payload: {
                 selectedAnimation:
                   defaultControlsSettings.animations.selectedAnimation,
@@ -60,7 +62,7 @@ const AnimationPicker = () => {
                 isActive={key === animations.selectedAnimation}
                 onClick={() =>
                   dispatch({
-                    type: CONTROLS_ACTIONS.ANIMATIONS,
+                    type: ANIMATIONS_ACTION,
                     payload: {
                       selectedAnimation: key,
                     },
@@ -86,13 +88,13 @@ const AnimationPicker = () => {
             value={animations.duration}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: { duration: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: {
                   duration: defaultControlsSettings.animations.duration,
                 },
@@ -111,13 +113,13 @@ const AnimationPicker = () => {
             value={animations.stagger}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: { stagger: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: {
                   stagger: defaultControlsSettings.animations.stagger,
                 },
@@ -136,13 +138,13 @@ const AnimationPicker = () => {
             value={animations.initialDelay}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: { initialDelay: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: {
                   initialDelay: defaultControlsSettings.animations.initialDelay,
                 },
@@ -161,13 +163,13 @@ const AnimationPicker = () => {
             value={animations.repeatDelay}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: { repeatDelay: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: {
                   repeatDelay: defaultControlsSettings.animations.repeatDelay,
                 },
@@ -192,13 +194,13 @@ const AnimationPicker = () => {
             value={animations.repeat}
             onChange={(e) =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: { repeat: Number(e.target.value) },
               })
             }
             onClick={() =>
               dispatch({
-                type: CONTROLS_ACTIONS.ANIMATIONS,
+                type: ANIMATIONS_ACTION,
                 payload: {
                   repeat: defaultControlsSettings.animations.repeat,
                 },
@@ -211,7 +213,7 @@ const AnimationPicker = () => {
               isActive={animations.repeat === -1}
               onClick={() =>
                 dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  type: ANIMATIONS_ACTION,
                   payload: {
                     repeat: animations.repeat === -1 ? 1 : -1,
                   },
@@ -230,7 +232,7 @@ const AnimationPicker = () => {
               text="Off"
               onClick={() => {
                 dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  type: ANIMATIONS_ACTION,
                   payload: { yoyo: false },
                 });
               }}
@@ -240,7 +242,7 @@ const AnimationPicker = () => {
               text="On"
               onClick={() => {
                 dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  type: ANIMATIONS_ACTION,
                   payload: { yoyo: true },
                 });
               }}
@@ -256,7 +258,7 @@ const AnimationPicker = () => {
           title="Easing:"
           onClick={() =>
             dispatch({
-              type: CONTROLS_ACTIONS.ANIMATIONS,
+              type: ANIMATIONS_ACTION,
               payload: {
                 easing: defaultControlsSettings.animations.easing,
               },
@@ -270,7 +272,7 @@ const AnimationPicker = () => {
               text={gsapEasing}
               onClick={() =>
                 dispatch({
-                  type: CONTROLS_ACTIONS.ANIMATIONS,
+                  type: ANIMATIONS_ACTION,
                   payload: {
                     easing: gsapEasing,
                   },
