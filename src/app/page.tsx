@@ -8,7 +8,7 @@ import HomeView from "./features/home/HomeView";
 // export const metadata: Metadata = pageMetadata.home;
 
 const Home = () => {
-  const [hasAccess, setHasAccess] = useState<boolean | null>(null); // null = no validado aún
+  const [hasAccess, setHasAccess] = useState<boolean | null>(null); 
 
   useEffect(() => {
     const password = prompt("Enter the trial password:");
