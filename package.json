@@ -1,9 +1,10 @@
 {
   "name": "bloop",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "export-animations": "node scripts/exportAnimations.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",

@@ -2,7 +2,7 @@ export { default as IconAnimation } from "./IconAnimation";
 export { default as IconBackground } from "./IconBackground";
 export { default as IconCompress } from "./IconCompress";
 export { default as IconConfig } from "./IconConfig";
-export { default as IconDownload } from "./IconDownload";
+export { default as IconExport } from "./IconExport";
 export { default as IconExpand } from "./IconExpand";
 export { default as IconInfo } from "./IconInfo";
 export { default as IconLoop } from "./IconLoop";

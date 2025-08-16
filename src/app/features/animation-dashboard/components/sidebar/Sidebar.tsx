@@ -7,9 +7,8 @@ import clsx from "clsx";
 import {
   IconAnimation,
   IconBackground,
-  IconDownload,
+  IconExport,
   IconPalette,
-  IconPresets,
   IconText,
 } from "@/assets/svg";
 
@@ -19,6 +18,7 @@ import {
   AnimationPicker,
   BackgroundPicker,
   ColorPicker,
+  ExportPicker,
   TextPicker,
 } from "./components";
 
@@ -45,14 +45,9 @@ const tabs: TabType[] = [
     icon: <IconBackground />,
   },
   {
-    tabName: "presets",
-    component: <BackgroundPicker />,
-    icon: <IconPresets />,
-  },
-  {
-    tabName: "download",
-    component: <BackgroundPicker />,
-    icon: <IconDownload />,
+    tabName: "export",
+    component: <ExportPicker />,
+    icon: <IconExport />,
   },
 ] as const;
 

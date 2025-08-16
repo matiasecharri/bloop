@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-const IconDownload = (props: SVGProps<SVGSVGElement>) => {
+const IconExport = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       height="1em"
@@ -21,4 +21,4 @@ const IconDownload = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export default IconDownload;
+export default IconExport;

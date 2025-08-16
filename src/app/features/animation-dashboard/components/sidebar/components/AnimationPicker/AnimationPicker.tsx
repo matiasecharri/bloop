@@ -18,6 +18,7 @@ import {
   RangeWrapper,
   ScrollerWrapper,
 } from "@/shared/components/organisms";
+
 import AnimationPreview from "../../../animation-preview/AnimationPreview";
 
 const { ANIMATIONS: ANIMATIONS_ACTION } = CONTROLS_ACTIONS;

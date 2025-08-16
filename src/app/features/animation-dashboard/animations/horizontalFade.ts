@@ -2,8 +2,6 @@ import _SplitText from "gsap/SplitText";
 import { AnimationSettings, TextSettings } from "../models";
 import gsap from "gsap";
 
-//TO-DO: Create a common object for the repeated stuff
-
 const horizontalFade = (
   animations: AnimationSettings,
   text: Pick<TextSettings, "fontSize">,

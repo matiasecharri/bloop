@@ -8,13 +8,14 @@ interface ButtonProps {
   text: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   isActive?: boolean;
+  withHover?: boolean;
   customFont?: string;
 }
 
-const Button = ({ text, isActive, customFont, onClick }: ButtonProps) => {
+const Button = ({ text, isActive, customFont, withHover, onClick }: ButtonProps) => {
   return (
     <button
-      className={clsx(s.button, !!isActive && s.active)}
+      className={clsx(s.button, !!isActive && s.active, !!withHover && s.hover)}
       style={{ fontFamily: clsx(!!customFont && customFont) }}
       onClick={onClick}
     >
