@@ -2,13 +2,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 6px;
   margin-bottom: 16px;
   font-family: satoshi, sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--color-light);
   text-transform: uppercase;
-  gap: 6px;
 }
 
 .title svg {
