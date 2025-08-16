@@ -1,0 +1,7 @@
+.note {
+  font-family: satoshi, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: var(--color-light);
+  opacity: 0.9;
+}

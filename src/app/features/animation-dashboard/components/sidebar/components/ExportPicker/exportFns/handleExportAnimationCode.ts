@@ -15,7 +15,7 @@ const handleExportAnimationCode = (
   let cleanedCode = codeFromJSON
     .split("\n")
     .filter(
-      line =>
+      (line) =>
         !line.trim().startsWith("import") &&
         !line.trim().startsWith("export default")
     )
@@ -29,8 +29,7 @@ const handleExportAnimationCode = (
   **************************************
   * DEPENDENCIES
   * Requires gsap and SplitText (npm i gsap)
-  * NOTE: Includes some internal Bloop types.
-  * Remove TypeScript types to use as plain JS.
+  * 👀 NOTE: This code includes internal Bloop types — please delete them from the parameters (animations, text, splitText) before running.
   **************************************
 */
 
@@ -41,6 +40,9 @@ const handleExportAnimationCode = (
   * 2. Append element to DOM
   * 3. Create SplitText instance
   * 4. Call ${selectedAnimation}(animationSettings, textSettings, split)
+  * We hope you have as much fun using it as we did creating it 🎉
+  * 
+  * From: The Bloop Team
   **************************************
 */
 

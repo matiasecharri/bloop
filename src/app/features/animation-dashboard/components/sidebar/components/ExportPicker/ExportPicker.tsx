@@ -1,17 +1,22 @@
 import { useControls } from "@/app/features/animation-dashboard/context";
 import { IconConfig } from "@/assets/svg";
 
-import { Button, Subtitle, Title } from "@/shared/components/atoms";
+import { Button, Note, Subtitle, Title } from "@/shared/components/atoms";
 
 import { ButtonWrapper, PickerStep } from "@/shared/components/molecules";
 
 import { PickerWrapper } from "@/shared/components/organisms";
 
-import handleExportAnimationCode from "./exportFns/handleExportAnimationCode";
+import {
+  handleExportAnimationCode,
+  handleExportAnimationMP4,
+} from "./exportFns";
 
 const ExportPicker = () => {
-  const { state } = useControls();  
+  const { state } = useControls();
   const { selectedAnimation } = state.animations;
+
+  console.log(state.animations);
 
   return (
     <PickerWrapper>
@@ -22,7 +27,7 @@ const ExportPicker = () => {
         <Subtitle step="09" text="export your animation" />
         <ButtonWrapper
           isColumm
-          subtitle="JSON, MP4, GIF"
+          subtitle="JS File, MP4, GIF"
           title="Format Options:"
         >
           <Button
@@ -30,9 +35,17 @@ const ExportPicker = () => {
             text="Export to Code"
             onClick={() => handleExportAnimationCode(selectedAnimation, state)}
           />
-          <Button withHover text="Download MP4" />
-          <Button withHover text="Download GIF" />
+          <Button
+            disabled
+            withHover
+            text="Download MP4"
+            onClick={() =>
+              handleExportAnimationMP4(".Visualizer_visualizer__LKutw")
+            }
+          />
+          <Button disabled withHover text="Download GIF" />
         </ButtonWrapper>
+        <Note text="*Some features will be ready in a future release." />
       </PickerStep>
     </PickerWrapper>
   );

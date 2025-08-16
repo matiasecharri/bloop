@@ -2,7 +2,7 @@ import _SplitText from "gsap/SplitText";
 import { AnimationSettings, TextSettings } from "../models";
 import gsap from "gsap";
 
-const bloopingAnimation = (
+const blooping = (
   animations: AnimationSettings,
   text: Pick<TextSettings, "fontSize">,
   splitedText: _SplitText
@@ -58,4 +58,4 @@ const bloopingAnimation = (
   return tl;
 };
 
-export default bloopingAnimation;
+export default blooping;

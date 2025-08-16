@@ -2,7 +2,7 @@ import _SplitText from "gsap/SplitText";
 
 import { AnimationSettings, TextSettings } from "../models";
 
-import bloopingAnimation from "./blooping";
+import blooping from "./blooping";
 import horizontalFade from "./horizontalFade";
 import verticalFade from "./verticalFade";
 import flicker from "./flicker";
@@ -24,7 +24,7 @@ type AnimationType = {
 const animationsMap: Record<string, AnimationType> = {
   blooping: {
     label: "Blooping",
-    fn: bloopingAnimation,
+    fn: blooping,
     category: "motion",
   },
   horizontalFade: {
