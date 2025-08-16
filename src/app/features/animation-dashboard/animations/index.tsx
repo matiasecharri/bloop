@@ -5,7 +5,7 @@ import { AnimationSettings, TextSettings } from "../models";
 import bloopingAnimation from "./blooping";
 import horizontalFade from "./horizontalFade";
 import verticalFade from "./verticalFade";
-import flicker from "./flickr";
+import flicker from "./flicker";
 import popIn from "./popIn";
 import rotateInOut from "./rotateInOut";
 

@@ -11,8 +11,8 @@ const handleExportAnimationCode = (
   const codeFromJSON = typedAnimationsStrings[selectedAnimation];
   if (!codeFromJSON) return;
 
-  // Delete unnecessary imports
-  const cleanedCode = codeFromJSON
+  // Delete unnecessary imports and export default
+  let cleanedCode = codeFromJSON
     .split("\n")
     .filter(
       line =>
@@ -20,6 +20,9 @@ const handleExportAnimationCode = (
         !line.trim().startsWith("export default")
     )
     .join("\n");
+
+  // Replace internal _text param with text
+  cleanedCode = cleanedCode.replace(/\b_text\b/g, "text");
 
   const fullCode = `
 /*
