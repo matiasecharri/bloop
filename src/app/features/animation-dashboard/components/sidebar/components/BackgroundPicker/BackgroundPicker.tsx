@@ -6,7 +6,13 @@ import {
 import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
 import { IconConfig } from "@/assets/svg";
 
-import { ButtonColor, Subtitle, Title } from "@/shared/components/atoms";
+import {
+  ButtonColor,
+  CustomColorSelector,
+  Note,
+  Subtitle,
+  Title,
+} from "@/shared/components/atoms";
 
 import { PickerStep } from "@/shared/components/molecules";
 
@@ -33,7 +39,8 @@ const ColorPicker = () => {
           isDefaultExpanded
           isRow
           isBtnDisabled={isBackgroundDefault("backgroundColor")}
-          title="Default backgrounds"
+          subtitle={`${background.backgroundColor}`}
+          title="selected:"
           onClick={() =>
             dispatch({
               type: BACKGROUND,
@@ -59,6 +66,23 @@ const ColorPicker = () => {
             />
           ))}
         </ScrollerWrapper>
+      </PickerStep>
+      <PickerStep>
+        <CustomColorSelector
+          title="Custom Background Selector"
+          value={
+            /^#([0-9A-F]{3}){1,2}$/i.test(background.backgroundColor)
+              ? background.backgroundColor
+              : defaultControlsSettings.background.backgroundColor
+          }
+          onChange={(newColor) =>
+            dispatch({
+              type: BACKGROUND,
+              payload: { backgroundColor: newColor },
+            })
+          }
+        />
+        <Note text="*Click and select any background instead of the defaults." />
       </PickerStep>
     </PickerWrapper>
   );

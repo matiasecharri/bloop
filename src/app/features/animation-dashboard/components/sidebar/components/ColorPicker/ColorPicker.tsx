@@ -6,7 +6,13 @@ import {
 import { defaultControlsSettings } from "@/app/features/animation-dashboard/models";
 import { IconConfig } from "@/assets/svg";
 
-import { ButtonColor, Subtitle, Title } from "@/shared/components/atoms";
+import {
+  ButtonColor,
+  CustomColorSelector,
+  Note,
+  Subtitle,
+  Title,
+} from "@/shared/components/atoms";
 
 import { PickerStep } from "@/shared/components/molecules";
 
@@ -33,7 +39,8 @@ const ColorPicker = () => {
           isDefaultExpanded
           isRow
           isBtnDisabled={isTextStylesDefault("color")}
-          title="Default Colors"
+          subtitle={`${textStyles.color}`}
+          title="selected:"
           onClick={() =>
             dispatch({
               type: TEXT_STYLES,
@@ -53,6 +60,23 @@ const ColorPicker = () => {
             />
           ))}
         </ScrollerWrapper>
+      </PickerStep>
+      <PickerStep>
+        <CustomColorSelector
+          title="Custom Color Selector"
+          value={
+            /^#([0-9A-F]{3}){1,2}$/i.test(textStyles.color)
+              ? textStyles.color
+              : defaultControlsSettings.textStyles.color
+          }
+          onChange={(newColor) =>
+            dispatch({
+              type: TEXT_STYLES,
+              payload: { color: newColor },
+            })
+          }
+        />
+        <Note text="*Click and select any color instead of the defaults." />
       </PickerStep>
     </PickerWrapper>
   );
