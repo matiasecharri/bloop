@@ -1,0 +1,32 @@
+.buttonColor {
+  position: relative;
+  width: calc(50% - 5px);
+  height: 100px;
+  cursor: pointer;
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  border-radius: 10px;
+  border-radius: 10px;
+  border-radius: 10px;
+  border-radius: 10px;
+}
+
+.buttonColor::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.6s ease;
+  transform: translate(-50%, -50%) scale(0);
+  content: "";
+}
+
+.active::after {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}

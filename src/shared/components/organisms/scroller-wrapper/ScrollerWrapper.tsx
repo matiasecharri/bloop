@@ -15,6 +15,7 @@ interface ScrollerWrapperProps {
   children: ReactNode;
   isBtnDisabled?: boolean;
   isDefaultExpanded?: boolean;
+  isRow?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -24,6 +25,7 @@ const ScrollerWrapper = ({
   subtitle,
   isBtnDisabled,
   isDefaultExpanded,
+  isRow,
   onClick,
 }: ScrollerWrapperProps) => {
   const [isExpanded, setIsExpanded] = useState(isDefaultExpanded || false);
@@ -57,7 +59,13 @@ const ScrollerWrapper = ({
           <strong>{title}</strong> {subtitle}
         </span>
       </div>
-      <div className={clsx(s.scroller, !!isExpanded && s.expanded)}>
+      <div
+        className={clsx(
+          s.scroller,
+          !!isExpanded && s.expanded,
+          !!isRow && s.row
+        )}
+      >
         {children}
       </div>
     </section>

@@ -1,9 +1,11 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
 import {
   AnimationSettings,
+  BackgroundSettings,
   ControlsSettings,
   defaultControlsSettings,
   TextSettings,
+  TextStylesSettings,
 } from "../models";
 import { withLogger } from "@/shared/utilities";
 
@@ -11,6 +13,8 @@ import { withLogger } from "@/shared/utilities";
 export const CONTROLS_ACTIONS = {
   TEXT: "TEXT",
   ANIMATIONS: "ANIMATIONS",
+  TEXT_STYLES: "TEXT_STYLES",
+  BACKGROUND: "BACKGROUND",
 } as const;
 
 export type ControlsAction =
@@ -18,6 +22,14 @@ export type ControlsAction =
   | {
       type: typeof CONTROLS_ACTIONS.ANIMATIONS;
       payload: Partial<AnimationSettings>;
+    }
+  | {
+      type: typeof CONTROLS_ACTIONS.TEXT_STYLES;
+      payload: Partial<TextStylesSettings>;
+    }
+  | {
+      type: typeof CONTROLS_ACTIONS.BACKGROUND;
+      payload: Partial<BackgroundSettings>;
     };
 
 //REDUCER
@@ -40,6 +52,24 @@ const controlReducer = (
         ...state,
         animations: {
           ...state.animations,
+          ...action.payload,
+        },
+      };
+
+    case CONTROLS_ACTIONS.TEXT_STYLES:
+      return {
+        ...state,
+        textStyles: {
+          ...state.textStyles,
+          ...action.payload,
+        },
+      };
+
+    case CONTROLS_ACTIONS.BACKGROUND:
+      return {
+        ...state,
+        background: {
+          ...state.background,
           ...action.payload,
         },
       };

@@ -5,7 +5,11 @@ import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 import { useControls } from "../../context";
-import { TextSettings } from "../../models";
+import {
+  BackgroundSettings,
+  TextSettings,
+  TextStylesSettings,
+} from "../../models";
 import animationsMap from "../../animations";
 
 import s from "./Visualizer.module.css";
@@ -14,16 +18,23 @@ gsap.registerPlugin(SplitText);
 
 const Visualizer = () => {
   const { state } = useControls();
-  const { text, animations } = state;
+  const { text, animations, textStyles, background } = state;
 
   const textRef = useRef<HTMLParagraphElement>(null);
   const splitRef = useRef<SplitText | null>(null);
 
-  const dynamicStyles: Omit<TextSettings, "userText"> = {
+  type DynamicTextType = Omit<TextSettings, "userText"> & TextStylesSettings;
+
+  const dynamicTextStyles: DynamicTextType = {
     fontSize: text.fontSize,
     fontWeight: text.fontWeight,
     fontFamily: text.fontFamily,
     letterSpacing: text.letterSpacing,
+    color: textStyles.color,
+  };
+
+  const dynamicBackgroundStyles: BackgroundSettings = {
+    backgroundColor: background.backgroundColor,
   };
 
   useGSAP(() => {
@@ -63,8 +74,8 @@ const Visualizer = () => {
   }, [animations, text.userText, text.fontSize]);
 
   return (
-    <section className={s.visualizer}>
-      <p key={text.userText} ref={textRef} style={dynamicStyles}>
+    <section className={s.visualizer} style={dynamicBackgroundStyles}>
+      <p key={text.userText} ref={textRef} style={dynamicTextStyles}>
         {text.userText}
       </p>
     </section>

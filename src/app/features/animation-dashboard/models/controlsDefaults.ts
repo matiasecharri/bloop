@@ -20,4 +20,10 @@ export const defaultControlsSettings: ControlsSettings = {
     letterSpacing: -1.6,
     userText: "Blooooop",
   },
+  textStyles: {
+    color: "#181818",
+  },
+  background: {
+    backgroundColor: "#FFFCE1",
+  },
 };

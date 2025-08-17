@@ -23,11 +23,25 @@ export interface TextSettings {
   userText: string;
 }
 
+// Color Interface
+
+export interface TextStylesSettings {
+  color: string;
+}
+
+// Background Interface
+
+export interface BackgroundSettings {
+  backgroundColor: string;
+}
+
 // Combined Interfaces
 
 export interface ControlsSettings {
   animations: AnimationSettings;
   text: TextSettings;
+  textStyles: TextStylesSettings;
+  background: BackgroundSettings;
 }
 
 /**

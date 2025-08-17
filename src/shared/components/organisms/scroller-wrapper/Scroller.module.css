@@ -40,3 +40,7 @@
 .info {
   opacity: 0.8;
 }
+
+.row {
+  flex-flow: row wrap;
+}
