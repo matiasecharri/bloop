@@ -2,19 +2,22 @@ const handleExportAnimationMP4 = async (containerSelector: string) => {
   const container = document.querySelector<HTMLDivElement>(containerSelector);
   if (!container) return;
 
-  const stream = await (navigator.mediaDevices as any).getDisplayMedia({
+  const stream: MediaStream = await navigator.mediaDevices.getDisplayMedia({
     video: true,
   });
 
   const recorder = new MediaRecorder(stream);
   const chunks: BlobPart[] = [];
-  recorder.ondataavailable = (e) => chunks.push(e.data);
+
+  recorder.ondataavailable = (e: BlobEvent) => chunks.push(e.data);
   recorder.start();
 
-  await new Promise((res) => setTimeout(res, 6000)); // duración de ejemplo
+  await new Promise<void>((res) => setTimeout(res, 6000)); //TODO: Calculate duration based on animation if needed
 
-  recorder.stop();
-  await new Promise((res) => (recorder.onstop = res));
+  await new Promise<void>((res) => {
+    recorder.onstop = () => res();
+    recorder.stop();
+  });
 
   const blob = new Blob(chunks, { type: "video/mp4" });
   const url = URL.createObjectURL(blob);
