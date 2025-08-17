@@ -12,7 +12,7 @@ const handleExportAnimationMP4 = async (containerSelector: string) => {
   recorder.ondataavailable = (e: BlobEvent) => chunks.push(e.data);
   recorder.start();
 
-  await new Promise<void>((res) => setTimeout(res, 6000)); //TODO: Calculate duration based on animation if needed
+  await new Promise<void>((res) => setTimeout(res, 6000)); //TO-DO: Calculate duration based on animation if needed
 
   await new Promise<void>((res) => {
     recorder.onstop = () => res();
